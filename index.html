@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINCO BASE — by HONDA</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050d1a;
+      --surface: #0a1628;
+      --border: #1a2d4a;
+      --accent: #3b82f6;
+      --accent-bright: #60a5fa;
+      --text: #e8f0fe;
+      --muted: #7a9abf;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .header {
+      margin-bottom: 48px;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      color: #60a5fa;
+    }
+
+    .by-honda {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin: 16px 0;
+    }
+
+    .tagline {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .cards {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px 28px;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(59,130,246,0.4);
+      transform: translateX(4px);
+    }
+
+    .card:hover::before { transform: scaleY(1); }
+
+    .card-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+      color: #e8f0fe;
+    }
+
+    .card-desc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .card-arrow {
+      font-size: 16px;
+      color: var(--muted);
+      margin-left: auto;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--accent-bright);
+      transform: translateX(4px);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 10px;
+      color: #2a4a6a;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo-sub">Shinko Sangyo</div>
+      <div class="logo">SHINCO<br>BASE</div>
+      <div class="by-honda">— by HONDA</div>
+      <div class="divider"></div>
+      <div class="tagline">Internal Management System</div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="weight.html">
+        <div class="card-icon">⚖️</div>
+        <div class="card-body">
+          <div class="card-title">重量計算</div>
+          <div class="card-desc">鉄材重量・展開計算 / 本田式</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="card" href="sinco_torihikisaki.html">
+        <div class="card-icon">📋</div>
+        <div class="card-body">
+          <div class="card-title">顧客・受注管理</div>
+          <div class="card-desc">取引先 / 受注 / 外注 / 在庫</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+
+    <div class="footer">新興産業株式会社 &nbsp;|&nbsp; Internal Use Only</div>
+  </div>
+</body>
+</html>
