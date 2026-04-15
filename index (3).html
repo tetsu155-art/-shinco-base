@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINCO BASE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: #f8f7f4;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+    .wrapper { max-width: 560px; width: 100%; }
+    .company { font-size: 22px; font-weight: bold; border-bottom: 2px solid #111; padding-bottom: 16px; margin-bottom: 32px; letter-spacing: 0.1em; }
+    .company-en { font-size: 11px; color: #888; letter-spacing: 0.2em; margin-top: 4px; }
+    .logo { font-size: 72px; font-weight: 900; color: #1a3a6b; line-height: 1; letter-spacing: 0.05em; }
+    .by-honda { font-size: 24px; font-weight: bold; color: #1a3a6b; margin-top: 8px; letter-spacing: 0.15em; }
+    .line { border: none; border-top: 1px solid #111; margin: 16px 0; }
+    .tagline { font-size: 11px; color: #888; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 40px; }
+    .card {
+      display: flex; align-items: center; gap: 16px;
+      background: #fff; border: 1px solid #ddd; border-left: 4px solid #1a3a6b;
+      padding: 20px 24px; text-decoration: none; color: #111;
+      margin-bottom: 8px; transition: transform 0.2s;
+    }
+    .card:hover { transform: translateX(4px); border-left-color: #c0392b; }
+    .card-icon { font-size: 24px; }
+    .card-title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
+    .card-desc { font-size: 11px; color: #888; }
+    .card-arrow { margin-left: auto; font-size: 18px; color: #888; }
+    .footer { margin-top: 32px; border-top: 1px solid #ddd; padding-top: 16px; display: flex; justify-content: space-between; font-size: 12px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="company">
+      株式会社 新興産業
+      <div class="company-en">Shinco Sangyo Co., Ltd.</div>
+    </div>
+    <div class="logo">Shinco<br>BASE</div>
+    <div class="by-honda">— by Honda</div>
+    <hr class="line">
+    <div class="tagline">Internal Management System</div>
+
+    <a class="card" href="weight.html">
+      <div class="card-icon">⚖️</div>
+      <div>
+        <div class="card-title">重量計算</div>
+        <div class="card-desc">鉄材重量・展開計算 / 本田式</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="card" href="sinco_torihikisaki.html">
+      <div class="card-icon">📋</div>
+      <div>
+        <div class="card-title">顧客・受注管理</div>
+        <div class="card-desc">取引先 / 受注 / 外注 / 在庫</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="card" href="shinco_manual.html">
+      <div class="card-icon">📖</div>
+      <div>
+        <div class="card-title">マニュアル</div>
+        <div class="card-desc">操作手順 / 使い方ガイド</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <div class="footer">
+      <span>株式会社新興産業</span>
+      <span>Internal Use Only</span>
+    </div>
+  </div>
+</body>
+</html>
