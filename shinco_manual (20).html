@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://tetsu155-art.github.io/-shinco-base/shinco_manual.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新興産業 業務マニュアル</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+:root{
+  --sidebar-bg:#1a3a5c;
+  --sidebar-hover:#2c5f8a;
+  --sidebar-active:#2c5f8a;
+  --sidebar-text:#b8d0e8;
+  --sidebar-text-active:#fff;
+  --header-bg:#1a3a5c;
+  --accent:#2c5f8a;
+  --accent-light:#dce9f4;
+  --bg:#f4f5f7;
+  --surface:#fff;
+  --border:#dde1ea;
+  --text:#1a1a2e;
+  --text-sub:#6b7280;
+  --green:#1a7f37;--green-light:#d1fae5;
+  --red:#dc2626;--red-light:#fee2e2;
+  --yellow:#b45309;--yellow-light:#fef3c7;
+  --p1:#2c5f8a;--p2:#8b5cf6;--p3:#f59e0b;--p4:#10b981;--p5:#ef4444;
+  --radius:8px;
+  --sidebar-w:220px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);font-size:14px;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+/* ヘッダー */
+.header{background:var(--header-bg);color:#fff;height:48px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;z-index:100;}
+.header-logo{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.1em;color:#fff;}
+.header-divider{width:1px;height:20px;background:rgba(255,255,255,.2);}
+.header-title{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);}
+.header-spacer{flex:1;}
+.btn-header{font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:inherit;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;}
+.btn-header:hover{background:rgba(255,255,255,.2);}
+.btn-header.active{background:#dcfce7;color:#166534;border-color:#86efac;}
+
+/* メインレイアウト */
+.main{display:flex;flex:1;overflow:hidden;}
+
+/* サイドバー */
+.sidebar{width:var(--sidebar-w);background:var(--sidebar-bg);flex-shrink:0;display:flex;flex-direction:column;overflow-y:auto;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:2px;}
+.sidebar-section{padding:16px 12px 8px;}
+.sidebar-section-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.35);text-transform:uppercase;padding:0 8px;margin-bottom:4px;}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;cursor:pointer;color:var(--sidebar-text);font-size:13px;font-weight:500;transition:all .15s;user-select:none;}
+.nav-item:hover{background:var(--sidebar-hover);color:var(--sidebar-text-active);}
+.nav-item.active{background:var(--sidebar-active);color:var(--sidebar-text-active);}
+.nav-item-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0;}
+.nav-sub{padding-left:12px;}
+.nav-sub .nav-item{font-size:12px;padding:6px 10px;color:rgba(184,208,232,.7);}
+.nav-sub .nav-item:hover,.nav-sub .nav-item.active{color:#fff;background:rgba(44,95,138,.6);}
+.sidebar-divider{height:1px;background:rgba(255,255,255,.1);margin:8px 12px;}
+
+/* コンテンツエリア */
+.content-area{flex:1;overflow-y:auto;background:var(--bg);}
+.content-area::-webkit-scrollbar{width:6px;}
+.content-area::-webkit-scrollbar-thumb{background:#c4c9d4;border-radius:3px;}
+
+/* 編集バー */
+.edit-bar{background:#fff9e6;border-bottom:2px solid #f0d060;padding:6px 20px;font-size:12px;color:#92700a;display:none;align-items:center;gap:10px;flex-shrink:0;}
+.edit-bar.show{display:flex;}
+
+/* コンテンツ */
+.content{max-width:720px;padding:24px 28px 80px;}
+.msection{display:none;}.msection.active{display:block;}
+
+/* ページタイトル */
+.page-title{font-size:20px;font-weight:700;margin-bottom:6px;}
+.page-meta{font-size:12px;color:var(--text-sub);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.page-meta-tag{background:var(--accent-light);color:var(--accent);padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;}
+
+/* フェーズヘッダー */
+.phase-header{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.phase-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:#fff;white-space:nowrap;}
+.phase-title{font-size:16px;font-weight:700;}
+.phase-desc{font-size:12px;color:var(--text-sub);}
+.mp1{background:var(--p1);}.mp2{background:var(--p2);}.mp3{background:var(--p3);}.mp4{background:var(--p4);}.mp5{background:var(--p5);}
+
+/* プログレス */
+.mprogress{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.mprogress-bar-wrap{flex:1;height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden;}
+.mprogress-bar{height:100%;border-radius:3px;transition:width .3s;background:var(--accent);}
+.mprogress-label{font-size:11px;color:var(--text-sub);white-space:nowrap;font-family:'IBM Plex Mono',monospace;}
+
+/* ステップ */
+.mstep{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;}
+.mstep:hover{box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.mstep-header{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;user-select:none;}
+.mstep-check{width:20px;height:20px;border:2px solid #d1d5db;border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.mstep-check.checked{background:var(--green);border-color:var(--green);}
+.mstep-check.checked::after{content:'✓';color:#fff;font-size:11px;font-weight:700;}
+.mstep-num{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--text-sub);min-width:34px;}
+.mstep-content{flex:1;}
+.mstep-title{font-size:14px;font-weight:600;}
+.mstep-subtitle{font-size:12px;color:var(--text-sub);margin-top:2px;}
+.arrow{font-size:10px;color:var(--text-sub);transition:transform .2s;margin-left:4px;}
+.mstep.closed .arrow{transform:rotate(-90deg);}
+.mstep-body{padding:12px 14px 14px 58px;border-top:1px solid var(--border);background:#fafafa;}
+.mstep.closed .mstep-body{display:none;}
+.edit-step-btn{font-size:11px;padding:3px 8px;background:var(--surface);border:1px solid var(--border);border-radius:5px;cursor:pointer;font-family:inherit;margin-left:4px;color:var(--text-sub);}
+.edit-step-btn:hover{background:#f0f4f8;color:var(--accent);}
+/* ステップ操作ツールバー */
+.step-toolbar{display:flex;gap:6px;margin-bottom:10px;}
+.step-tool-btn{padding:5px 12px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:var(--accent);font-weight:500;}
+.step-tool-btn:hover{background:var(--accent-light);}
+
+/* ノート */
+.mnote table{border-collapse:collapse;width:100%;margin:8px 0;font-size:12px;}.mnote th,.mnote td{border:1px solid #ccc;padding:6px 10px;text-align:left;}.mnote th{background:#f0f4f8;font-weight:600;}
+.mnote{font-size:13px;line-height:1.75;word-break:break-all;white-space:pre-wrap;overflow-wrap:break-word;padding:10px 12px;border-radius:6px;background:#eef3fb;border-left:3px solid #a8c0e0;margin-bottom:8px;}
+.mnote:last-child{margin-bottom:0;}
+.mnote.warn{background:var(--yellow-light);border-left-color:var(--yellow);}
+.mnote.danger{background:var(--red-light);border-left-color:var(--red);}
+.mnote.ok{background:var(--green-light);border-left-color:var(--green);}
+.mcode{font-family:'IBM Plex Mono',monospace;background:#e5e7eb;padding:1px 6px;border-radius:4px;font-size:12px;}
+
+/* タグ */
+.mtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.mtag{font-size:11px;padding:2px 8px;border-radius:12px;font-weight:500;}
+.mtag-s{background:#dbeafe;color:#1e40af;}
+.mtag-p{background:#f3e8ff;color:#6b21a8;}
+.mtag-f{background:#e0f2fe;color:#0369a1;}
+.mtag-w{background:#fef3c7;color:#b45309;}
+
+/* 製品サブタブ */
+.prod-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.prod-tab{padding:5px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);cursor:pointer;font-size:12px;font-weight:500;color:var(--text-sub);}
+.prod-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.prod-content{display:none;}.prod-content.active{display:block;}
+
+/* フローリスト */
+.flow-list{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.flow-item{display:flex;align-items:flex-start;gap:10px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:13px;line-height:1.7;}
+.flow-item:last-child{border-bottom:none;}
+.flow-arrow{color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0;margin-top:1px;}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border:none;border-radius:var(--radius);cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border);}
+.btn-danger{background:var(--red-light);color:var(--red);border:1px solid #fca5a5;}
+.btn-sm{padding:4px 10px;font-size:12px;}
+
+/* モーダル */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:12px;padding:24px;width:500px;max-width:95vw;max-height:88vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.2);}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:16px;}
+.form-group{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.form-group label{font-size:11px;font-weight:600;color:var(--text-sub);text-transform:uppercase;letter-spacing:.05em;}
+input[type=text],textarea,select{padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:13px;width:100%;outline:none;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);}
+textarea{resize:vertical;min-height:80px;}
+.modal-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+  <span class="header-logo">SHINCO</span>
+  <span class="header-divider"></span>
+  <span class="header-title">新興産業 業務マニュアル</span>
+  <div class="header-spacer"></div>
+  <button class="btn-header" onclick="extExport()">📤 エクスポート</button>
+  <button class="btn-header" onclick="document.getElementById(&#39;ext-import-input&#39;).click()">📥 インポート</button>
+  <input type="file" id="ext-import-input" accept=".json" style="display:none" onchange="extImport(event)">
+  <button class="btn-header" onclick="resetChecks()">✕ チェックリセット</button>
+  <button class="btn-header" id="edit-btn" onclick="toggleEdit()">✏ 編集モード</button>
+</header>
+
+<!-- 編集バー -->
+<div class="edit-bar" id="edit-bar">
+  ✏ 編集モード中 —
+  <button class="btn btn-primary btn-sm" onclick="openAddModal()">＋ ステップを追加</button>
+  <button class="btn btn-secondary btn-sm" onclick="toggleEdit()">完了</button>
+</div>
+
+<div class="main">
+
+  <!-- サイドバー -->
+  <aside class="sidebar">
+    <!-- サイドバー上部：追加ボタン -->
+    <div style="padding:12px;border-bottom:1px solid rgba(255,255,255,.1);">
+      <button onclick="openSidebarAddModal()" style="width:100%;padding:8px;background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);border-radius:6px;color:#fff;cursor:pointer;font-family:inherit;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;">
+        ＋ 項目を追加
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">マニュアル</div>
+      <div id="sidebar-accordions">
+        <!-- 受注処理アコーディオン -->
+        <div class="acc-block" data-id="juchu">
+          <div class="nav-item acc-header" onclick="toggleAccordion(&#39;acc-juchu&#39;,this)" id="acc-btn-juchu">
+            <span class="nav-item-icon">📋</span><span class="acc-label">受注処理</span>
+            <span id="acc-arrow-juchu" style="margin-left:auto;font-size:10px;transition:transform .2s">▼</span>
+          </div>
+          <div id="acc-juchu" class="nav-sub" style="display:none">
+            <div class="nav-item" onclick="showSection(&#39;overview&#39;,this)">全体フロー</div>
+            <div class="nav-item" onclick="showSection(&#39;juchu&#39;,this)">① 受注処理</div>
+            <div class="nav-item" onclick="showSection(&#39;shijisho&#39;,this)">② 指示書作成</div>
+            <div class="nav-item" onclick="showSection(&#39;gaichuu&#39;,this)">③ 外注連絡</div>
+            <div class="nav-item" onclick="showSection(&#39;shukka&#39;,this)">④ 出荷</div>
+            <div class="nav-item" onclick="showSection(&#39;uriage&#39;,this)">⑤ 売上処理</div>
+          </div>
+        </div>
+      <div class="nav-item" id="ext-nav-xmo2degbky6m"><span class="nav-item-icon">📋</span><span style="flex:1">機械加工</span></div><div class="nav-item" id="ext-nav-xmoxmcprzy1w"><span class="nav-item-icon">🚙</span><span style="flex:1">配送関係</span></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">ヒロテック</div>
+      <div class="acc-block">
+        <div class="nav-item acc-header" onclick="toggleAccordion('acc-hirotec',this)" id="acc-btn-hirotec">
+          <span class="nav-item-icon">🏭</span><span class="acc-label">ヒロテック出荷</span>
+          <span id="acc-arrow-hirotec" style="margin-left:auto;font-size:10px;transition:transform .2s">▼</span>
+        </div>
+        <div id="acc-hirotec" class="nav-sub" style="display:none">
+          <div class="nav-item" onclick="showSection('hirotec-overview',this)">全体フロー</div>
+          <div class="nav-item" onclick="showSection('hirotec-shukka',this)">📦 出荷関係</div>
+          <div class="nav-item" onclick="showSection('hirotec-seihin',this)">🔩 製品関係</div>
+          <div class="nav-item" onclick="showSection('hirotec-note',this)">📝 補足情報</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">よく使う情報</div>
+      <div class="nav-item" onclick="showSection(&#39;quickref&#39;,this)">
+        <span class="nav-item-icon">🔑</span>コード・番号一覧
+      </div>
+      <div class="nav-item" onclick="showSection(&#39;contacts&#39;,this)">
+        <span class="nav-item-icon">👤</span>担当者・連絡先
+      </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">メモ</div>
+      <div class="nav-item" onclick="toggleAccordion(&#39;acc-memo&#39;,this)" id="acc-btn-memo">
+        <span class="nav-item-icon">📝</span><span class="acc-label">実務メモ</span>
+        <span id="acc-arrow-memo" style="margin-left: auto; font-size: 10px; transition: transform 0.2s; transform: rotate(180deg);">▼</span>
+      </div>
+      <div id="acc-memo" class="nav-sub" style="">
+        <div class="nav-item" onclick="showSection(&#39;memo-shijisho&#39;,this)">指示書（登録なし）</div>
+        <div class="nav-item" onclick="showSection(&#39;memo-paribet&#39;,this)">リベット</div>
+        <div class="nav-item" onclick="showSection(&#39;memo-haiso&#39;,this)">配送について</div>
+        <div class="nav-item" onclick="showSection(&#39;memo-trouble&#39;,this)">問題が起きたとき</div>
+      <div class="nav-item" id="ext-nav-xmo17ijcb0ao"><span class="nav-item-icon">📝</span><span style="flex:1">図面で意識すること</span></div><div class="nav-item" id="ext-nav-xmokvlznp02d"><span class="nav-item-icon">📝</span><span style="flex:1">📋 プレス・曲げ加工 技術資料まとめ</span></div><div class="nav-item active" id="ext-nav-xmouuypt4r3d"><span class="nav-item-icon">📝</span><span style="flex:1">ヒロテック出荷準備</span></div><div class="nav-item" id="ext-nav-xmouvdp878hd"><span class="nav-item-icon">📝</span><span style="flex:1">業務関係メモ</span></div><div class="nav-item" id="ext-nav-xmoxjmr1w59x"><span class="nav-item-icon">📝</span><span style="flex:1">見積り関係</span></div></div>
+    </div>
+  <button id="ext-cat-btn" style="width: calc(100% - 24px); margin: 8px 12px 4px; padding: 8px; background: rgba(255, 255, 255, 0.1); border: 1px dashed rgba(255, 255, 255, 0.3); border-radius: 6px; color: rgb(255, 255, 255); cursor: pointer; font-family: inherit; font-size: 13px; display: block;">＋ カテゴリを追加</button></aside>
+
+  <!-- コンテンツ -->
+  <div class="content-area">
+    <div class="content">
+
+      <!-- 全体フロー -->
+      <div class="msection" id="sec-overview" style="display: none;">
+        <div class="page-title">全体の流れ</div>
+        <div class="page-meta"><span class="page-meta-tag">OVERVIEW</span>サンヨー向け受注〜売上処理</div>
+        <div class="flow-list">
+          <div class="flow-item"><span class="flow-arrow">→</span>注文書を受け取る（FAX or メール）</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>SMILEで受注処理・受注番号を取得（<span class="mcode">S123456</span> 形式）</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>指示書を起こし、図面とセットにしてBOXへ</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>外注と社内で仕分け</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>社内：注文書と一緒に時末さんへ　／　外注：ファイルに保管 → 外注先へ連絡</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>製作完了 → 指示書がBOXに戻ってくる</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>出荷表を記入 → 澤さんへ渡す・配送手配</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>売上処理：注文書＋受注番号を時末さんへ → 売上確定</div>
+        </div>
+      </div>
+
+      <!-- ① 受注処理 -->
+      <div class="msection" id="sec-juchu" style="display: none;">
+        <div class="page-title">受注処理</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;juchu&#39;)">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp1" style="font-size:10px">PHASE 01</span>SMILE登録・受注番号の取得</div>
+        <div class="mprogress"><div class="mprogress-bar-wrap"><div class="mprogress-bar" id="pb-juchu" style="width:0%"></div></div><div class="mprogress-label" id="pl-juchu">0 / 4 完了</div></div>
+        <div id="steps-juchu">
+          <div class="mstep" data-phase="juchu"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;juchu&#39;)"></div><div class="mstep-num">01</div><div class="mstep-content"><div class="mstep-title">注文書を受け取る</div><div class="mstep-subtitle">FAX or メールで届く</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">注文書の内容（品名・数量・納期）を目視で確認する。</div><div class="mtags"><span class="mtag mtag-w">⚠ 必ず目視確認</span></div></div></div>
+          <div class="mstep" data-phase="juchu"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;juchu&#39;)"></div><div class="mstep-num">02</div><div class="mstep-content"><div class="mstep-title">SMILEを起動してログイン</div><div class="mstep-subtitle">パスワード「1」</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><strong>操作：</strong> 販売 → 受注処理 → 得意先コード = 商品コード<br>サンヨーの得意先コード：<span class="mcode">035</span>（頭に <span class="mcode">1035</span> をつける）</div><div class="mtags"><span class="mtag mtag-s">SMILE</span></div></div></div>
+          <div class="mstep" data-phase="juchu"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;juchu&#39;)"></div><div class="mstep-num">03</div><div class="mstep-content"><div class="mstep-title">受注番号を取得して注文書に記入</div><div class="mstep-subtitle">例：S123456 → 注文書の横にSをつけて書く</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">下の受注番号をとる。例）<span class="mcode">S123456</span><br><strong>Sをつけて</strong>注文書の横に並べて書く。</div><div class="mnote warn"><strong>過去案件を見る場合：</strong><br>売上リスト → 全て → 詳細回件 → 含まれる文字列（図書）で検索可能</div></div></div>
+          <div class="mstep" data-phase="juchu"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;juchu&#39;)"></div><div class="mstep-num">04</div><div class="mstep-content"><div class="mstep-title">受注を確認する方法（月次）</div><div class="mstep-subtitle">月次業務 → 受注発注管理帳 → 得意先別 → 得意先コード</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote ok">これで受注処理完了。次は指示書作成へ。</div></div></div>
+        </div>
+      <button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-juchu"><div class="mstep ext-extra" style="border-left: 3px solid rgb(44, 95, 138);"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">月末締納期について</div></div><span class="arrow">▼</span><button class="edit-step-btn" data-sec="juchu" data-sid="xmo6p890hi8x" data-title="月末締納期について" data-body="毎月20日がサンヨーの締め日
+2ヶ月またいで納品してはダメ。
+21日にサンヨーに納金される
+例：5/22納期ならオッケ">編集</button><button class="edit-step-btn" style="color:#c00" data-sec="juchu" data-sid="xmo6p890hi8x">削除</button></div><div class="mstep-body"><div class="mnote">毎月20日がサンヨーの締め日
+2ヶ月またいで納品してはダメ。
+21日にサンヨーに納金される
+例：5/22納期ならオッケ</div></div></div><div class="mstep ext-extra" style="border-left: 3px solid rgb(44, 95, 138);"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">S364-MH-Z</div></div><span class="arrow">▼</span><button class="edit-step-btn" data-sec="juchu" data-sid="xmogh2y0fm8j" data-title="S364-MH-Z" data-body="これはEMLの後ろにあって、鉄のアミカゴに入れる。
+この製品はユニットとサンヨーしか知らない。">編集</button><button class="edit-step-btn" style="color:#c00" data-sec="juchu" data-sid="xmogh2y0fm8j">削除</button></div><div class="mstep-body"><div class="mnote">これはEMLの後ろにあって、鉄のアミカゴに入れる。
+この製品はユニットとサンヨーしか知らない。</div></div></div></div></div>
+
+      <!-- ② 指示書作成 -->
+      <div class="msection" id="sec-shijisho" style="display: none;">
+        <div class="page-title">指示書作成</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;shijisho&#39;)">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp2" style="font-size:10px">PHASE 02</span>図面確認 → 加工指示書 → BOXへ</div>
+        <div class="mprogress"><div class="mprogress-bar-wrap"><div class="mprogress-bar" id="pb-shijisho" style="width:0%"></div></div><div class="mprogress-label" id="pl-shijisho">0 / 5 完了</div></div>
+        <div id="steps-shijisho">
+          <div class="mstep" data-phase="shijisho"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shijisho&#39;)"></div><div class="mstep-num">01</div><div class="mstep-content"><div class="mstep-title">図面（番号）を確認して形をイメージする</div><div class="mstep-subtitle">必ず自分の目で確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><strong>サンヨーの場合：</strong><br>サンヨー図面（池田）からPDFを探す<br>指示書 → 丸山さんの中のサンヨーから加工指示書を見つける</div><div class="mtags"><span class="mtag mtag-w">⚠ 必ず自分の目で確認</span><span class="mtag mtag-f">e-dHIVE内</span></div></div></div>
+          <div class="mstep" data-phase="shijisho"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shijisho&#39;)"></div><div class="mstep-num">02</div><div class="mstep-content"><div class="mstep-title">加工指示書を作成する</div><div class="mstep-subtitle">S364など既存の指示書をベースにする</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">S364など既存指示書を開く → 受注番号（SMILEで取ったもの）を記入 → <strong>個数と納期を変更</strong></div><div class="mnote warn">注文の入ったものをそれぞれの図番から探して作成。<strong>必ず目視で確認。</strong></div></div></div>
+          <div class="mstep" data-phase="shijisho"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shijisho&#39;)"></div><div class="mstep-num">03</div><div class="mstep-content"><div class="mstep-title">図面と指示書をホッチキスでセット</div><div class="mstep-subtitle">ユニット出しをしない場合はペンでラインを引く</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">図面と加工指示書をセット → ホッチキスで留める<br>ユニット出しをしない場合は<strong>ペンでライン</strong>を引く</div></div></div>
+          <div class="mstep" data-phase="shijisho"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shijisho&#39;)"></div><div class="mstep-num">04</div><div class="mstep-content"><div class="mstep-title">外注・社内で仕分け → BOXへ</div><div class="mstep-subtitle">外注：ファイルへ　社内：時末さんへ</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">社内：注文書と一緒に<strong>時末さん</strong>へ渡す<br>外注：外注依頼ファイルに保管 → 外注先へ連絡</div><div class="mtags"><span class="mtag mtag-p">時末さんへ</span></div></div></div>
+          <div class="mstep" data-phase="shijisho"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shijisho&#39;)"></div><div class="mstep-num">05</div><div class="mstep-content"><div class="mstep-title">ゲージボード出荷明細を作成</div><div class="mstep-subtitle">納品のたびにタブを作る</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote danger"><strong>【重要】</strong> ゲージボード出荷明細は納品のたびにタブで作る。<br>記載内容：図番・品名・納入日・個数・納期（客先）<br>受注番号を <span class="mcode">S123456</span> のように入れる。</div><div class="mtags"><span class="mtag mtag-f">ゲージボード出荷明細ファイル</span></div></div></div>
+        </div>
+      <button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-shijisho"></div></div>
+
+      <!-- ③ 外注連絡 -->
+      <div class="msection" id="sec-gaichuu" style="display: none;">
+        <div class="page-title">外注への連絡</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;gaichuu&#39;)">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp3" style="font-size:10px">PHASE 03</span>製品種別で手順が異なる</div>
+        <div class="prod-tabs">
+          <button class="prod-tab active" id="prodtab-gb" onclick="showProd(&#39;gb&#39;,this)">ゲージボード</button>
+          <button class="prod-tab" id="prodtab-kb" onclick="showProd(&#39;kb&#39;,this)">回転板（メッキ）</button>
+          <button class="prod-tab" id="prodtab-st" onclick="showProd(&#39;st&#39;,this)">セパタンク</button>
+        </div>
+        <div class="prod-content active" id="prod-gb">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">GB-1</div><div class="mstep-content"><div class="mstep-title">ユニット株式会社への発注</div><div class="mstep-subtitle">5月分以降まとめて依頼</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">5月分以降をまとめてユニットへ発注する。発注前にユニットの予定表（Excel）を更新すること。</div><div class="mtags"><span class="mtag mtag-p">ユニット株式会社</span></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">GB-2</div><div class="mstep-content"><div class="mstep-title">ゲージボード出荷明細の作成</div><div class="mstep-subtitle">納品のたびにタブを作る</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote danger"><strong>【重要】</strong> 納品のたびにタブで作る。記載内容：図番・品名・納入日・個数・納期（客先）<br>受注番号を <span class="mcode">S123456</span> のように入れる。</div><div class="mtags"><span class="mtag mtag-f">ゲージボード出荷明細ファイル</span></div></div></div>
+        </div>
+        <div class="prod-content" id="prod-kb">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">KB-1</div><div class="mstep-content"><div class="mstep-title">回転板 → 向陽金属でメッキ加工</div><div class="mstep-subtitle">在庫管理をする</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote danger"><strong>重要：現場からきたら配送の手配をする</strong></div><div class="mtags"><span class="mtag mtag-p">向陽金属（メッキ）</span></div></div></div>
+        </div>
+        <div class="prod-content" id="prod-st">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">ST-1</div><div class="mstep-content"><div class="mstep-title">指示書を社内に回す</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">指示書を作成して社内に回す。</div></div></div>
+
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">ST-2</div><div class="mstep-content"><div class="mstep-title">クロセにジョイントシート購入のメールを送る</div><div class="mstep-subtitle">納期：発注日から約2週間後を設定</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body">
+            <div class="mnote"><strong>ジョイントシートは①②③④の4種類</strong><br>②だけ2個使用（他は1個）<br><br><strong>数量例（54個の場合）：</strong><br>① 54個　② <strong>108個</strong>（2倍）　③ 54個　④ 54個</div>
+            <div class="mtags"><span class="mtag mtag-f">クロセにメール</span></div>
+          </div></div>
+
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">ST-3</div><div class="mstep-content"><div class="mstep-title">広溶テックに購入依頼Excelシートを記載</div><div class="mstep-subtitle">納期：発注日から約3週間後 → 記載後すぐ時末さんに伝える</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body">
+            <div class="mnote">購入依頼のExcelシートに記載する。<br>記載後すぐに<strong>時末さんに伝える</strong>。</div>
+            <div class="mnote warn">⚠ 広溶テックへの依頼は全体で<strong>1ヶ月</strong>は見ておく</div>
+            <div class="mtags"><span class="mtag mtag-p">時末さんへ</span><span class="mtag mtag-p">広溶テック（溶接）</span></div>
+          </div></div>
+
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">ST-4</div><div class="mstep-content"><div class="mstep-title">部材が揃ったらアミカゴにまとめて広溶テックに電話</div><div class="mstep-subtitle">3日前くらいを目安に連絡</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body">
+            <div class="mnote">以下が揃ったらアミカゴにまとめて<strong>広溶テックに電話でお願い</strong>する。<br><br>
+              ・ジョイントシート（ボス）<br>
+              ・エルボ（自社倉庫にある）<br>
+              ・ベンダー曲げ（社内）
+            </div>
+            <div class="mnote ok">広溶テックはお渡しする部材の<strong>溶接</strong>をしてくれる業者</div>
+            <div class="mtags"><span class="mtag mtag-p">広溶テック（電話）</span></div>
+          </div></div>
+
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">在庫</div><div class="mstep-content"><div class="mstep-title">在庫・納品の仕組み</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body">
+            <div class="mnote ok">広溶テックには<strong>常に完成品を2セット在庫</strong>として置いてある<br>広溶テックが引き取りに来る際に<strong>ストックから納品分を持ってくる</strong></div>
+          </div></div>
+
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">注意</div><div class="mstep-content"><div class="mstep-title">納品タイミングの注意</div><div class="mstep-subtitle">サンヨーは20日締め → 25日頃まで納品不可</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body">
+            <div class="mnote danger">サンヨーは<strong>20日締め</strong>のため、<strong>25日頃まで納品不可</strong><br>セパレートタンクが場所を取る場合は、<strong>セパレートタンクだけ先に納品する</strong>手配をする</div>
+          </div></div>
+        </div>
+      <button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-gaichuu"><div class="mstep ext-extra" style="border-left: 3px solid rgb(44, 95, 138);"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">ユニットに連絡</div></div><span class="arrow">▼</span><button class="edit-step-btn" data-sec="gaichuu" data-sid="xmo2b3blfs5r" data-title="ユニットに連絡" data-body="ゲージボードの指示書が上がってきたら、ユニットに連絡">編集</button><button class="edit-step-btn" style="color:#c00" data-sec="gaichuu" data-sid="xmo2b3blfs5r">削除</button></div><div class="mstep-body"><div class="mnote">ゲージボードの指示書が上がってきたら、ユニットに連絡</div></div></div><div class="mstep ext-extra" style="border-left: 3px solid rgb(44, 95, 138);"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">ゲージボードの傷</div></div><span class="arrow">▼</span><button class="edit-step-btn" data-sec="gaichuu" data-sid="xmol82h3lydp" data-title="ゲージボードの傷" data-body="ゲージボードの傷が入ったものはこちらから持っていく">編集</button><button class="edit-step-btn" style="color:#c00" data-sec="gaichuu" data-sid="xmol82h3lydp">削除</button></div><div class="mstep-body"><div class="mnote">ゲージボードの傷が入ったものはこちらから持っていく</div></div></div></div></div>
+
+      <!-- ヒロテック：全体フロー -->
+      <div class="msection" id="sec-hirotec-overview" style="display:none;">
+        <div class="page-title">ヒロテック出荷 全体フロー</div>
+        <div class="page-meta"><span class="page-meta-tag">HIROTEC</span>出荷準備から納品まで</div>
+        <div class="flow-list">
+          <div class="flow-item"><span class="flow-arrow">→</span>鈴木さんから <strong>表紙・図面・荷札</strong> をもらう</div>
+          <div class="flow-item"><span class="flow-arrow">→</span>荷札と図面が合っているか確認 → <strong>ホッチキスでつける</strong></div>
+          <div class="flow-item"><span class="flow-arrow">→</span>表紙と図面のセットを <strong>製品ごとに置く</strong></div>
+          <div class="flow-item"><span class="flow-arrow">→</span>3工場へ：広島レーザーから入る → <strong>社内で溶接</strong></div>
+          <div class="flow-item"><span class="flow-arrow">→</span>広島レーザーがケガキ入れ済み・中荷札は<strong>溶接時につけてくれる</strong></div>
+          <div class="flow-item"><span class="flow-arrow">→</span>出荷表をつけて <strong>2パレット</strong> で納品（混載便は必ず2P）</div>
+          <div class="flow-item"><span class="flow-arrow">→</span><strong>納品書・発送書</strong> を添付して完了</div>
+        </div>
+      </div>
+
+      <!-- ヒロテック：出荷関係 -->
+      <div class="msection" id="sec-hirotec-shukka" style="display:none;">
+        <div class="page-title">📦 出荷関係</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="extOpenForSec('hirotec-shukka')">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp4" style="font-size:10px">出荷フロー</span>準備〜納品</div>
+        <div class="mprogress"><div class="mprogress-bar-wrap"><div class="mprogress-bar" id="pb-hirotec-shukka" style="width:0%"></div></div><div class="mprogress-label" id="pl-hirotec-shukka">0 / 7 完了</div></div>
+        <div id="steps-hirotec-shukka">
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">01</div><div class="mstep-content"><div class="mstep-title">鈴木さんから書類をもらう</div><div class="mstep-subtitle">表紙・図面・荷札の3点セット</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">鈴木さんから <strong>表紙・図面・荷札</strong> をもらう。3点揃っているか確認する。</div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">02</div><div class="mstep-content"><div class="mstep-title">荷札と図面を照合 → ホッチキスでつける</div><div class="mstep-subtitle">内容が合っているか必ず確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">荷札の内容が図面と合っているか確認してからホッチキスでとめる。</div><div class="mnote warn">自社・村上さん・浜本分は<strong>自分でつける</strong>。3工場分は溶接時につけてくれる。</div><div class="mnote ok">★ 荷札は<strong>イエンちゃん</strong>が作ってくれている。</div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">03</div><div class="mstep-content"><div class="mstep-title">荷札の対応パターンを確認</div><div class="mstep-subtitle">状況によって対応が異なる</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><table><tr><th>状況</th><th>対応</th></tr><tr><td>図面と指示書あり・荷札なし</td><td>荷札をつけた図面とトトカれてもって帰る</td></tr><tr><td>荷札つき図面がない</td><td>つけたものを入れる</td></tr></table></div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">04</div><div class="mstep-content"><div class="mstep-title">表紙と図面を製品ごとにセット</div><div class="mstep-subtitle">ヒロテックあての表と一式は必ずセット</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><strong>セット内容：</strong>指示書・図面・出荷表<br>ヒロテックあての表と一式は必ずセットにすること。</div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">05</div><div class="mstep-content"><div class="mstep-title">3工場：スクラップシュートの向き確認</div><div class="mstep-subtitle">溶接の向きが合っているか確認してから持っていく</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote warn">3工場のスクラップシュートは<strong>溶接の向きが合っているか</strong>確認してから持っていく。</div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">06</div><div class="mstep-content"><div class="mstep-title">出荷表をつけて2パレットで納品</div><div class="mstep-subtitle">混載便は必ず2P</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">出荷表をつけて <strong>2パレット</strong> にて納品する。<br>混載便の場合は必ず2P。<br>直接納品の場合はその場で<strong>受け取り判をおす</strong>。</div></div></div>
+          <div class="mstep" data-phase="hirotec-shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,'hirotec-shukka')"></div><div class="mstep-num">07</div><div class="mstep-content"><div class="mstep-title">納品書・発送書を添付</div><div class="mstep-subtitle">図面はチュオンが確認 → ベトナムへ</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote ok">納品書・発送書を添付して完了。</div><div class="mnote">図面はベトナムで作ってもらっている。<br>チュオンが確認 → ベトナム → 戻ってきてから現場へ。</div></div></div>
+        </div>
+        <div id="ext-steps-hirotec-shukka"></div>
+      </div>
+
+      <!-- ヒロテック：製品関係 -->
+      <div class="msection" id="sec-hirotec-seihin" style="display:none;">
+        <div class="page-title">🔩 製品関係</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="extOpenForSec('hirotec-seihin')">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp2" style="font-size:10px">製品・製造</span>製造ルートと製品ポイント</div>
+        <div id="steps-hirotec-seihin">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">製造</div><div class="mstep-content"><div class="mstep-title">製造ルート一覧</div><div class="mstep-subtitle">担当・製造先・製品種別</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><table><tr><th>担当</th><th>製造先</th><th>製品種別</th></tr><tr><td>川崎さん</td><td>浜本工作所・社内・㈲村上鉄工所</td><td>ブラケット・プレート・切り・曲げ・穴加工</td></tr><tr><td>半田さん</td><td>広島レーザー（切り・曲げ）＋溶接社内</td><td>スクラップシュート・ブラケット・カバーなど</td></tr></table></div><div class="mnote danger">⚠ 川崎さんと半田さんは仲が悪い。<strong>混在・取り違えに絶対注意！</strong></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">加工</div><div class="mstep-content"><div class="mstep-title">曲げ・切りは社内でOK</div><div class="mstep-subtitle">基本的に塗装するSSが主</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">曲げ・切りは社内でOK。基本的に<strong>塗装するSSが主</strong>。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">積込</div><div class="mstep-content"><div class="mstep-title">スクラップシュートの積み方</div><div class="mstep-subtitle">大きいものを下に、すきまを作る</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">スクラップシュートは<strong>大きいものを下</strong>にして、すきまを作る。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">指示書</div><div class="mstep-content"><div class="mstep-title">指示書は図面がそろってから現場へ</div><div class="mstep-subtitle">チュオン → ベトナム → 現場の流れ</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote"><strong>流れ：</strong><br>チュオン → ベトナム → 戻ってきてから、指示書・図面・荷札をつけて現場へ</div><div class="mnote">広島レーザーがケガキ（位置マーク）を入れてくれている。<br>番号・中荷札は溶接時につけてくれる。</div></div></div>
+        </div>
+        <div id="ext-steps-hirotec-seihin"></div>
+      </div>
+
+      <!-- ヒロテック：補足情報 -->
+      <div class="msection" id="sec-hirotec-note" style="display:none;">
+        <div class="page-title">📝 補足情報</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="extOpenForSec('hirotec-note')">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="page-meta-tag">注意事項・メモ</span></div>
+        <div id="steps-hirotec-note">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">⚠</div><div class="mstep-content"><div class="mstep-title">川崎さん・半田さんの混在注意</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote danger">川崎さんと半田さんは仲が悪い。<strong>製品の混在・取り違えに絶対注意。</strong></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📋</div><div class="mstep-content"><div class="mstep-title">都度見積りがある</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">都度見積りがあることが多い。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📄</div><div class="mstep-content"><div class="mstep-title">鈴木さんのフォーマットは触らない</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">鈴木さんがフォーマットを作ってくれている。手を加えないこと。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📧</div><div class="mstep-content"><div class="mstep-title">メール返信のルール</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">メールの返信はきたメールに対して返す。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">担当のえらい方が細かい</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote warn">担当のえらい方が細かいので、確認・報告は丁寧に。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🌐</div><div class="mstep-content"><div class="mstep-title">図面はベトナムで作ってもらっている</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">図面はベトナムで作成。チュオンが確認して連絡してくれる。</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📦</div><div class="mstep-content"><div class="mstep-title">荷札の担当分け</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">荷札は自社・村上さん・浜本分は<strong>自分でつける</strong>。<br>3工場分は溶接時につけてくれる。</div></div></div>
+        </div>
+        <div id="ext-steps-hirotec-note"></div>
+      </div>
+
+
+      <div class="msection" id="sec-shukka" style="display: none;">
+        <div class="page-title">出荷の方法</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;shukka&#39;)">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp4" style="font-size:10px">PHASE 04</span>指示書BOX戻り → 仕分け → 出荷表記入 → 澤さんへ</div>
+        <div class="mprogress"><div class="mprogress-bar-wrap"><div class="mprogress-bar" id="pb-shukka" style="width:0%"></div></div><div class="mprogress-label" id="pl-shukka">0 / 5 完了</div></div>
+        <div id="steps-shukka">
+          <div class="mstep" data-phase="shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shukka&#39;)"></div><div class="mstep-num">01</div><div class="mstep-content"><div class="mstep-title">加工指示書がBOXに戻ってきたら確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">ファイルにある指示書（外注・社内）を確認。</div></div></div>
+          <div class="mstep" data-phase="shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shukka&#39;)"></div><div class="mstep-num">02</div><div class="mstep-content"><div class="mstep-title">外注と社内で仕分け</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">外注分はまとめておく（<strong>パンチで穴を開ける</strong>）</div></div></div>
+          <div class="mstep" data-phase="shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shukka&#39;)"></div><div class="mstep-num">03</div><div class="mstep-content"><div class="mstep-title">出荷表（ゲージボード出荷明細）を記入</div><div class="mstep-subtitle">図番・品名・納入日・個数・納期（客先）</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">受注番号を <span class="mcode">S123456</span> のように入れる。<strong>必ず間に合うように。</strong></div><div class="mnote warn">出荷先が外注先（ユニット等）の場合 → <strong>色をつける</strong></div><div class="mnote"><strong>サンヨーは20日まで納品OK。</strong></div></div></div>
+          <div class="mstep" data-phase="shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shukka&#39;)"></div><div class="mstep-num">04</div><div class="mstep-content"><div class="mstep-title">配送の手配</div><div class="mstep-subtitle">出荷表と配送先を澤さんに渡す</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">出荷表と場所（配送先）を<strong>澤さん</strong>に渡す。</div><div class="mtags"><span class="mtag mtag-p">澤さんへ</span></div></div></div>
+          <div class="mstep" data-phase="shukka"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;shukka&#39;)"></div><div class="mstep-num">05</div><div class="mstep-content"><div class="mstep-title">メッキ系（向陽金属）の手配</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">ユニットに取りに行って納品する</div><div class="mtags"><span class="mtag mtag-p">向陽金属</span><span class="mtag mtag-w">⚠ 在庫注意</span></div></div></div>
+        </div>
+        <div style="margin-top:10px"><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">補足</div><div class="mstep-content"><div class="mstep-title">サンヨーへ納品できる品</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote"><strong>納品できる品：</strong>ゲージボード（ユニット）・回転えばん（メッキ）・セパタンク・CPカバー</div></div></div></div>
+      <button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-shukka"></div></div>
+
+      <!-- ⑤ 売上処理 -->
+      <div class="msection" id="sec-uriage" style="display: none;">
+        <div class="page-title">売上処理</div>
+        <div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;uriage&#39;)">＋ ステップを追加</button></div>
+        <div class="page-meta"><span class="phase-badge mp5" style="font-size:10px">PHASE 05</span>出荷後 → 時末さんへ → 売上確定</div>
+        <div class="mprogress"><div class="mprogress-bar-wrap"><div class="mprogress-bar" id="pb-uriage" style="width:0%"></div></div><div class="mprogress-label" id="pl-uriage">0 / 4 完了</div></div>
+        <div id="steps-uriage">
+          <div class="mstep" data-phase="uriage"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;uriage&#39;)"></div><div class="mstep-num">01</div><div class="mstep-content"><div class="mstep-title">ファイルでサンヨーのものを確認</div><div class="mstep-subtitle">注文書と加工指示書の番号を照らし合わせる</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">注文書引き（SMILEでとった番号）例） <span class="mcode">S123564</span> のように確認。<strong>受注番号は間違えないように。</strong></div><div class="mtags"><span class="mtag mtag-s">SMILE</span><span class="mtag mtag-w">⚠ 番号確認必須</span></div></div></div>
+          <div class="mstep" data-phase="uriage"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;uriage&#39;)"></div><div class="mstep-num">02</div><div class="mstep-content"><div class="mstep-title">注文番号ごとの加工指示書をまとめて時末さんに渡す</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">注文書と受注番号を合わせて<strong>時末さん</strong>に渡す → これで売りが立つことになる。</div><div class="mtags"><span class="mtag mtag-p">時末さんへ</span></div></div></div>
+          <div class="mstep" data-phase="uriage"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;uriage&#39;)"></div><div class="mstep-num">03</div><div class="mstep-content"><div class="mstep-title">戻ってきた注文書はファイルに戻す</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote warn">納品されていないものは注文書が戻ってくる → <strong>ファイルに戻す</strong></div></div></div>
+          <div class="mstep" data-phase="uriage"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,&#39;uriage&#39;)"></div><div class="mstep-num">04</div><div class="mstep-content"><div class="mstep-title">加工指示書は「加工指示済ファイル」に入れる</div><div class="mstep-subtitle">右奥から新しいものを入れる</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote ok">加工指示書は「加工指示済ファイル」へ。※ <strong>右奥から新しいもの</strong>を入れる順番に注意。</div></div></div>
+        </div>
+      <button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-uriage"></div></div>
+
+      <!-- コード・番号一覧 -->
+      <div class="msection" id="sec-quickref" style="display: none;">
+        <div class="page-title">コード・番号一覧</div>
+        <div class="page-meta"><span class="page-meta-tag">QUICK REF</span>よく使う番号をまとめています</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📋</div><div class="mstep-content"><div class="mstep-title">サンヨー 得意先コード</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">得意先コード：<span class="mcode">035</span><br>SMILEでの入力：<span class="mcode">1035</span>（頭に1をつける）</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🔢</div><div class="mstep-content"><div class="mstep-title">受注番号の形式</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">SMILEで発行された番号に <strong>S</strong> をつける<br>例：<span class="mcode">S123456</span> → 注文書の横に手書きで記入</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📅</div><div class="mstep-content"><div class="mstep-title">サンヨー 納品期限</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote ok"><strong>毎月20日まで</strong>に納品すれば当月売上に計上される</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">⏱</div><div class="mstep-content"><div class="mstep-title">セパタンク 社内納期の計算</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote warn">発注日から <strong>3週間後</strong> を社内納期に設定する<br>例）3/23発注 → 社内納期は <span class="mcode">4月13日</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 担当者・連絡先 -->
+      <div class="msection" id="sec-contacts" style="display: none;">
+        <div class="page-title">担当者・連絡先</div>
+        <div class="page-meta"><span class="page-meta-tag">CONTACTS</span>よく連絡する担当者一覧</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">時末さん</div><div class="mstep-subtitle">売上処理・社内受注処理</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">注文書＋受注番号を渡す → 売上処理をしてもらう<br>社内品の指示書も時末さんへ</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">澤さん</div><div class="mstep-subtitle">出荷・配送手配</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">出荷表と配送先を渡す → 配送を手配してもらう</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">池田さん</div><div class="mstep-subtitle">サンヨー図面</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">サンヨーのPDF図面はe-dHIVE内の池田さんフォルダから探す</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">丸山さん</div><div class="mstep-subtitle">加工指示書</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">サンヨーの加工指示書は丸山さんフォルダ内のサンヨーから探す</div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🏭</div><div class="mstep-content"><div class="mstep-title">ユニット株式会社</div><div class="mstep-subtitle">ゲージボード外注先</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">ゲージボード（S364系）の外注先<br>発注前にExcel予定表を更新すること</div><div class="mtags"><span class="mtag mtag-p">外注先</span></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🏭</div><div class="mstep-content"><div class="mstep-title">向陽金属</div><div class="mstep-subtitle">メッキ加工</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">回転板のメッキ加工先<br>現場から来たら配送手配を忘れずに</div><div class="mtags"><span class="mtag mtag-p">外注先</span></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🏭</div><div class="mstep-content"><div class="mstep-title">広溶テック</div><div class="mstep-subtitle">セパタンク溶接</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">セパタンクの溶接外注先<br>購入依頼ファイルに記載後、時末さんに伝える</div><div class="mtags"><span class="mtag mtag-p">外注先</span></div></div></div>
+          <div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">中山さん</div><div class="mstep-subtitle">セパタンク部材発注先</div></div><span class="arrow">▼</span></div><div class="mstep-body"><div class="mnote">セパタンクの部材（ボス・ジョイントシート・クロセ）はメールで発注</div><div class="mtags"><span class="mtag mtag-f">メールで連絡</span></div></div></div>
+        </div>
+      </div>
+
+    <div class="msection" id="sec-memo-shijisho" style="display: none;"><div class="page-title">指示書の作成（登録がないもの）</div><div class="page-meta"><span class="page-meta-tag">実務メモ</span></div><div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;memo-shijisho&#39;)">＋ ステップを追加</button></div><div id="steps-memo-shijisho"><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📄</div><div class="mstep-content"><div class="mstep-title">取引額コードがない場合は100を使う</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">取引額コードが通しでないところは <strong>100</strong> を入力する。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2100-EA</div><div class="mstep-content"><div class="mstep-title">コードのないところ　1図面</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">コードが存在しない場合に使用。1図面あたりの処理。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2100-SE</div><div class="mstep-content"><div class="mstep-title">違うものを一緒にする場合など</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote warn">異なるものを一緒にまとめる際などに使用する。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📌</div><div class="mstep-content"><div class="mstep-title">注文書には担当がある</div><div class="mstep-subtitle">担当一覧は鈴木さんの私書箱にある</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">注文書にはそれぞれ担当がある。<br>外注にお願いする際は担当に連絡をする。<br>担当一覧は<strong>鈴木さんの私書箱</strong>にある。</div></div></div></div><button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-memo-shijisho"></div></div><div class="msection" id="sec-memo-paribet" style="display: none;"><div class="page-title">リベットについて</div><div class="page-meta"><span class="page-meta-tag">実務メモ</span></div><div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;memo-paribet&#39;)">＋ ステップを追加</button></div><div id="steps-memo-paribet"><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📦</div><div class="mstep-content"><div class="mstep-title">リベットはユニットに支給</div><div class="mstep-subtitle">62・64がある</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">リベットは相当数の在庫がある → <strong>ユニットに支給</strong><br>62・64がある、1枚1,000個あてる。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">📋</div><div class="mstep-content"><div class="mstep-title">均等になるように時末さんに発注</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">均等になるように<strong>時末さんに発注</strong>する。</div></div></div></div><button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-memo-paribet"></div></div><div class="msection" id="sec-memo-haiso" style="display: none;"><div class="page-title">配送について（4/2）</div><div class="page-meta"><span class="page-meta-tag">実務メモ</span></div><div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;memo-haiso&#39;)">＋ ステップを追加</button></div><div id="steps-memo-haiso"><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">🚛</div><div class="mstep-content"><div class="mstep-title">配送車は事前に相談しておく</div><div class="mstep-subtitle">特に大型のものは必ず事前確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote warn">配送車関係は<strong>事前に相談しておく</strong>。特に大型のものは必ず事前に確認。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">👤</div><div class="mstep-content"><div class="mstep-title">現場担当：右岡さん・西中さん</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">現場の担当者は<strong>右岡さん・西中さん</strong>。<br>右岡さんにはメモを持っていく。<br>基本的に名前を覚えて、エアキャップをとってメモする。</div></div></div></div><button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-memo-haiso"></div></div><div class="msection" id="sec-memo-trouble" style="display: none;"><div class="page-title">問題が起きたときの動き</div><div class="page-meta"><span class="page-meta-tag">実務メモ</span></div><div class="step-toolbar"><button class="step-tool-btn" onclick="openInlineAddModal(&#39;memo-trouble&#39;)">＋ ステップを追加</button></div><div id="steps-memo-trouble"><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">①</div><div class="mstep-content"><div class="mstep-title">現場に段取りの確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">まず現場に段取りの確認をする。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">②</div><div class="mstep-content"><div class="mstep-title">納品日の在庫確認</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">納品日に在庫があるか確認する。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">③</div><div class="mstep-content"><div class="mstep-title">行けそうなら配送手配</div><div class="mstep-subtitle">浦上さん・吉田さんに連絡</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote">配送できそうなら配送日時の手配をする。<br><strong>浦上さん・吉田さんに連絡</strong>する。<br>配車が来たら連絡。</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">④</div><div class="mstep-content"><div class="mstep-title">納品が難しい場合は取引先に連絡</div></div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div><div class="mstep-body"><div class="mnote danger">納品が難しい場合は<strong>取引先に連絡</strong>する。</div></div></div></div><button class="ext-sec-btn" style="margin-top: 12px; padding: 7px 14px; background: rgb(238, 243, 251); border: 1px solid rgb(168, 192, 224); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; color: rgb(44, 95, 138); font-weight: 500; display: inline-block;">＋ ステップを追加</button><div id="ext-steps-memo-trouble"></div></div><div class="msection" id="ext-page-xmo17ijcb0ao" style="display: none;"><div class="page-title">📝 図面で意識すること</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">料金単価</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmo17k4uc8pg" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">時間チャージ　85円/分
+パイプ　キロ単価＝300円 
+アングル　キロ単価＝250円 
+チャンネル　キロ単価＝250円 
+どぶ付けメッキ　キロ単価＝150円(元値105円)
+ 藪本鋼材　ｔ16以上のFB　キロ単価＝250円 
+6F材　キロ単価＝600円 
+焼鈍　キロ単価＝80円</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">機械加工時間チャージ</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmo18inv6xic" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">機械加工　90～95円/分</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">3</div><div class="mstep-content"><div class="mstep-title">加工費について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmo18m080glk" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">複雑な図面に対して、材料費より加工費が安いのは危険</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">4</div><div class="mstep-content"><div class="mstep-title">レーザー公差</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmoav0bkghsl" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">社内のレーザー公差は±0.1まで</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">5</div><div class="mstep-content"><div class="mstep-title">穴あけ加工表記</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmoid5espqx8" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>種類</th><th>表記</th><th>意味</th></tr>
+  <tr><td>穴</td><td>φ10▽15</td><td>直径10、深さ15の穴</td></tr>
+  <tr><td>ざぐり穴</td><td>φ6└φ10▽5</td><td>下穴6、上部を直径10で深さ5ざぐり</td></tr>
+  <tr><td>皿穴</td><td>φ6 V φ10</td><td>下穴6、上部を皿加工（面取り）</td></tr>
+  <tr><td>ねじ穴</td><td>M10×14 / φ8.5▽18</td><td>M10タップ深さ14、下穴8.5で深さ18</td></tr>
+</tbody></table></div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">6</div><div class="mstep-content"><div class="mstep-title">データについて</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmom7s2p62f7" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">データ費はプレートのみ
+基本：アングル・チャンネル・角パイプなどは必要ない</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">7</div><div class="mstep-content"><div class="mstep-title">外注・機械加工・見積り依頼</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmom8wh96g7e" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">図面をもらったら、
+・枚数の確認
+・外注・機械加工があれば、先に連絡しておく</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">8</div><div class="mstep-content"><div class="mstep-title">繋ぎ合わせるかどうか</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmp0j1puqldp" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">溶接加工マークで判断する
+接続部分</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">9</div><div class="mstep-content"><div class="mstep-title">表面処理について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmp0j509fjlh" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">表面処理は加工してから行う</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">10</div><div class="mstep-content"><div class="mstep-title">計算方法(フランジ)</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo17ijcb0ao" data-sid="xmp6nryminda" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">フランジは切り板から丸の形に切って製作
+例：Φ850　ｔ50なら
+850*850*t50*7.85の計算
+
+規格で同じ穴なら既製品を買うこともある</div></div></div><div style="margin-top:16px"><button id="btn-add-xmo17ijcb0ao" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmo17ijcb0ao" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection" id="ext-page-xmo2degbky6m" style="display: none;"><div class="page-title">📋 機械加工</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">機械加工　知識</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmo2dh30qzz7" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>加工方法</th><th>一般的なRa値範囲</th><th>適用例</th></tr>
+  <tr><td>旋削加工</td><td>Ra1.6〜Ra25</td><td>一般的な外径・内径加工</td></tr>
+  <tr><td>フライス加工</td><td>Ra3.2〜Ra12.5</td><td>平面加工・溝加工</td></tr>
+  <tr><td>研削加工</td><td>Ra0.1〜Ra1.6</td><td>高精度仕上げ面</td></tr>
+</tbody></table></div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">公差記号</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmo2k56qtgkx" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>公差の種類</th><th>記号</th><th>意味・用途</th></tr>
+  <tr><td>真直度</td><td>—</td><td>直線や軸の真っすぐさ</td></tr>
+  <tr><td>平面度</td><td>□</td><td>平面の平坦さ</td></tr>
+  <tr><td>真円度</td><td>○</td><td>円形状の真円度</td></tr>
+  <tr><td>円筒度</td><td>◎</td><td>円筒形状の精度</td></tr>
+  <tr><td>直角度</td><td>⊥</td><td>直角配置の精度</td></tr>
+  <tr><td>平行度</td><td>//</td><td>平行配置の精度</td></tr>
+  <tr><td>同軸度</td><td>◎</td><td>同じ軸上の精度</td></tr>
+  <tr><td>位置度</td><td>⊕</td><td>位置の精度</td></tr>
+  <tr><td>傾斜度</td><td>∠</td><td>角度の精度</td></tr>
+</tbody></table></div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">3</div><div class="mstep-content"><div class="mstep-title">公差記入</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmo2k65f1c4g" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>記入方法</th><th>記入例</th><th>許容寸法範囲</th><th>用途</th></tr>
+  <tr><td>両側公差</td><td>50±0.1</td><td>49.9〜50.1</td><td>上下同じ</td></tr>
+  <tr><td>片側公差（上）</td><td>50+0.2/0</td><td>50.0〜50.2</td><td>上のみ</td></tr>
+  <tr><td>片側公差（下）</td><td>50-0/0.1</td><td>49.9〜50.0</td><td>下のみ</td></tr>
+  <tr><td>上下異公差</td><td>50+0.2/-0.1</td><td>49.9〜50.2</td><td>異なる</td></tr>
+  <tr><td>はめあい公差</td><td>φ50H7</td><td>規格表による</td><td>軸と穴</td></tr>
+</tbody></table></div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">4</div><div class="mstep-content"><div class="mstep-title">面相度</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmo2k6u5h2f4" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>表面粗さレベル</th><th>旧JIS記号</th><th>新JIS（Ra）</th><th>仕上げ内容</th></tr>
+  <tr><td>超精仕上げ</td><td>▽▽▽▽▽</td><td>Ra0.4</td><td>鏡面</td></tr>
+  <tr><td>精仕上げ</td><td>▽▽▽</td><td>Ra0.8〜1.6</td><td>微細</td></tr>
+  <tr><td>中仕上げ</td><td>▽▽</td><td>Ra3.2〜6.3</td><td>並</td></tr>
+  <tr><td>粗仕上げ</td><td>▽</td><td>Ra12.5〜25</td><td>荒</td></tr>
+  <tr><td>指定なし</td><td>～</td><td>指定なし</td><td>任意</td></tr>
+</tbody></table>
+面粗度: Ra 1.6 〜 Ra 3.2 程度　6F材を使う</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">5</div><div class="mstep-content"><div class="mstep-title">対応機械</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmo2kdz1c42b" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>加工方法</th><th>設備</th><th>補足</th></tr>
+  <tr><td>旋削加工</td><td>DMG森精機 NLX2500/700、MAZAK・HOWA汎用旋盤、Neoα-16EX</td><td>丸物加工中心</td></tr>
+  <tr><td>フライス加工</td><td>OKK VM7Ⅲ・VM53R、BTD-200QH・BTD-110R16、FJV-35/80 II、OKUMA MA-8000H</td><td>平面・大型加工</td></tr>
+  <tr><td>研削加工</td><td></td><td>外注対応想定</td></tr>
+</tbody></table></div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">6</div><div class="mstep-content"><div class="mstep-title">機械加工　藪本さんに型切りについて</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmohus66fjhy" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">藪本鋼材で材料を買うと
+
+分厚い板は藪本鋼材さん
+そこである程度切ってもらう。
+大きい穴も小さめに開けてもらっておく
+大体、切って納品の際は5mm程度肉をとる(こちらで加工するときの余裕を残すため)
+
+ロール曲げも藪本さんでできる
+33,000円くらい</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">7</div><div class="mstep-content"><div class="mstep-title">加工順と精度について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmoi6s9ik4q6" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">機械加工の手順(基本的に)
+溶接→機械に乗せる→精度を出すために削る
+※溶接でひずみなどがでるため
+それを直すために機械で削ることで精度を出す</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">8</div><div class="mstep-content"><div class="mstep-title">丸棒の規格</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmoi6zbxvaa1" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">Φ300までしかない
+そのため平板で作る</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">9</div><div class="mstep-content"><div class="mstep-title">料金について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmoi71c6b1zv" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">1リーマ大体5,000円</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">10</div><div class="mstep-content"><div class="mstep-title">機械加工に書いてある図面表記</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmoi8oblt4u7" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">記号Ra値仕上げ程度✓ 
+▽25μm荒仕上げ（旋削・フライス素地）
+▽▽6.3μm並仕上げ
+▽▽▽1.6μm精密仕上げ（研削・精旋削）
+図面に ✓　(▽(25) または ▽▽(6.3))
+この図面表記がある場合
+Ra1.6 の精密仕上げが要求される。
+✓ (▽25)(▽▽ 6.3)</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">11</div><div class="mstep-content"><div class="mstep-title">材料からの加工方法(丸棒・角材)</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmo2degbky6m" data-sid="xmoicnvt2pfr" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">バンドソーで形を切る。
+そのため、大きめに購入したり、肉を取っておく</div></div></div><div style="margin-top:16px"><button id="btn-add-xmo2degbky6m" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmo2degbky6m" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection" id="ext-page-xmokvlznp02d" style="display: none;"><div class="page-title">📝 📋 プレス・曲げ加工 技術資料まとめ</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">圧力計算</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmokvlznp02d" data-sid="xmoky9505h8i" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote"><table>
+  <tbody><tr><th>計算式：P = C × L × T² × σb ÷ 1000 × V × 10</th><th></th><th></th><th></th><th></th><th></th></tr>
+  <tr><td>記号</td><td>単位</td><td>内容</td><td>見積活用ポイント</td><td></td><td></td></tr>
+  <tr><td>P</td><td>kN/M</td><td>V曲げ圧力</td><td>機械トン数の選定根拠</td><td></td><td></td></tr>
+  <tr><td>V</td><td>mm</td><td>ダイの開口幅</td><td>板厚×係数で決まる（下表参照）</td><td></td><td></td></tr>
+  <tr><td>L</td><td>mm</td><td>曲げ長さ</td><td>長いほど圧力増→段取り注意</td><td></td><td></td></tr>
+  <tr><td>T</td><td>mm</td><td>板厚</td><td>二乗で効くため厚板ほど影響大</td><td></td><td></td></tr>
+  <tr><td>σb</td><td>N/mm²</td><td>材料の引張強度</td><td>材質ごとに異なる（材質表参照）</td><td></td><td></td></tr>
+  <tr><td>C</td><td>—</td><td>補正係数</td><td>板厚ごとに変化（下表参照）</td></tr>
+</tbody></table></div></div></div><div style="margin-top:16px"><button id="btn-add-xmokvlznp02d" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmokvlznp02d" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection active" id="ext-page-xmouuypt4r3d" style="display: block;"><div class="page-title">📝 ヒロテック出荷準備</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">出荷準備</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmouv2bffe27" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">【指示書の中に入れるもの】
+一覧表で指示書の品目コードを合わせる
+荷札のついた図面を入れる
+その時に3Dの図面は２枚あるから一枚とる</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">製品について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmouv946t7kg" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">ケガキで製品の名前が書いてある
+それを現場の人が荷札をつけてくれる
+※ワイテックはつけなくていい</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">3</div><div class="mstep-content"><div class="mstep-title">出荷方法</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmow3kq4ho8u" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">申し入れ書に書いてある図番を照らし合わせて荷札と番号があっているか確認して納品
+浜本工作所で製品したものは荷札がついてる</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">4</div><div class="mstep-content"><div class="mstep-title">製造工程</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmp39spluxhf" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">スクラップシュート
+切り曲げー広島レーザー
+溶接のみー新興産業
+
+ブラケットー浜本工作所or 新興産業　機械加工は村上鉄工所</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">5</div><div class="mstep-content"><div class="mstep-title">スクラップシュート検品</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmp39tn8ahfo" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">形状とブラケットの位置を確認する</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">6</div><div class="mstep-content"><div class="mstep-title">ヒロテックの関係</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouuypt4r3d" data-sid="xmpbtj0sju98" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">元々浜本工作所にすべてお願いしていた。
+それを10年前くらいに変えてもらってる(浜本が株式化したため)
+スクラップシュートは専属でうちがやっている</div></div></div><div style="margin-top:16px"><button id="btn-add-xmouuypt4r3d" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmouuypt4r3d" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection" id="ext-page-xmouvdp878hd" style="display: none;"><div class="page-title">📝 業務関係メモ</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">三興(中迫さん)</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouvdp878hd" data-sid="xmouvghmoo6l" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">製缶などをお願いしている。
+定尺6ｍまで対応している
+【取引先】
+ヒロテック、JSW、きんでん</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">図面作成のデータ費</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouvdp878hd" data-sid="xmouw0cg67rp" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">平板なら10分くらい
+穴の数が多いと15分～30分くらい
+寸法線が多いと一番時間がかかる</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">3</div><div class="mstep-content"><div class="mstep-title">藪本鋼材</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmouvdp878hd" data-sid="xmpapuseicfp" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">宝和鋼業から材料を入れている
+ガス切りで板厚が厚いものはSSはここでお願い
+緊急は宝和の池田さんの名前を出しておくといい</div></div></div><div style="margin-top:16px"><button id="btn-add-xmouvdp878hd" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmouvdp878hd" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection" id="ext-page-xmoxjmr1w59x" style="display: none;"><div class="page-title">📝 見積り関係</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">作業時間について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmoxjmr1w59x" data-sid="xmoxjpawp3w0" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">終わった後検証する
+そこに疑問は現場に確認</div></div></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">2</div><div class="mstep-content"><div class="mstep-title">金額について</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmoxjmr1w59x" data-sid="xmoxk1rgjedd" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">金額面は作業時間の段取りを考えるのか
+考えずに出すかは取引先次第</div></div></div><div style="margin-top:16px"><button id="btn-add-xmoxjmr1w59x" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmoxjmr1w59x" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div><div class="msection" id="ext-page-xmoxmcprzy1w" style="display: none;"><div class="page-title">🚙 配送関係</div><div class="page-meta"><span class="page-meta-tag">カスタム</span></div><div class="mstep"><div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-num">1</div><div class="mstep-content"><div class="mstep-title">急遽の配送</div></div><span class="arrow">▼</span><button class="ext-edit-cat-btn" data-cat="xmoxmcprzy1w" data-sid="xmoxmi91eugh" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button></div><div class="mstep-body"><div class="mnote">急に外注先の配送になった際は、やめておく
+特に相手が休みの場合は止める</div></div></div><div style="margin-top:16px"><button id="btn-add-xmoxmcprzy1w" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">＋ ステップを追加</button> <button id="btn-del-xmoxmcprzy1w" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button></div></div></div>
+  </div>
+</div>
+
+<!-- ===== 実務メモ セクション ===== -->
+<script>
+// 実務メモセクションを動的に追加
+(function(){
+  var content = document.querySelector('.content');
+
+  var sections = [
+    {
+      id: 'memo-shijisho',
+      title: '指示書の作成（登録がないもの）',
+      tag: '実務メモ',
+      steps: [
+        {
+          num: '📄', title: '取引額コードがない場合は100を使う', sub: '',
+          body: '取引額コードが通しでないところは <strong>100</strong> を入力する。',
+          type: ''
+        },
+        {
+          num: '2100-EA', title: 'コードのないところ　1図面', sub: '',
+          body: 'コードが存在しない場合に使用。1図面あたりの処理。',
+          type: ''
+        },
+        {
+          num: '2100-SE', title: '違うものを一緒にする場合など', sub: '',
+          body: '異なるものを一緒にまとめる際などに使用する。',
+          type: 'warn'
+        },
+        {
+          num: '📌', title: '注文書には担当がある', sub: '担当一覧は鈴木さんの私書箱にある',
+          body: '注文書にはそれぞれ担当がある。<br>外注にお願いする際は担当に連絡をする。<br>担当一覧は<strong>鈴木さんの私書箱</strong>にある。',
+          type: ''
+        }
+      ]
+    },
+    {
+      id: 'memo-paribet',
+      title: 'リベットについて',
+      tag: '実務メモ',
+      steps: [
+        {
+          num: '📦', title: 'リベットはユニットに支給', sub: '62・64がある',
+          body: 'リベットは相当数の在庫がある → <strong>ユニットに支給</strong><br>62・64がある、1枚1,000個あてる。',
+          type: ''
+        },
+        {
+          num: '📋', title: '均等になるように時末さんに発注', sub: '',
+          body: '均等になるように<strong>時末さんに発注</strong>する。',
+          type: ''
+        }
+      ]
+    },
+    {
+      id: 'memo-haiso',
+      title: '配送について（4/2）',
+      tag: '実務メモ',
+      steps: [
+        {
+          num: '🚛', title: '配送車は事前に相談しておく', sub: '特に大型のものは必ず事前確認',
+          body: '配送車関係は<strong>事前に相談しておく</strong>。特に大型のものは必ず事前に確認。',
+          type: 'warn'
+        },
+        {
+          num: '👤', title: '現場担当：右岡さん・西中さん', sub: '',
+          body: '現場の担当者は<strong>右岡さん・西中さん</strong>。<br>右岡さんにはメモを持っていく。<br>基本的に名前を覚えて、エアキャップをとってメモする。',
+          type: ''
+        }
+      ]
+    },
+    {
+      id: 'memo-trouble',
+      title: '問題が起きたときの動き',
+      tag: '実務メモ',
+      steps: [
+        {
+          num: '①', title: '現場に段取りの確認', sub: '',
+          body: 'まず現場に段取りの確認をする。',
+          type: ''
+        },
+        {
+          num: '②', title: '納品日の在庫確認', sub: '',
+          body: '納品日に在庫があるか確認する。',
+          type: ''
+        },
+        {
+          num: '③', title: '行けそうなら配送手配', sub: '浦上さん・吉田さんに連絡',
+          body: '配送できそうなら配送日時の手配をする。<br><strong>浦上さん・吉田さんに連絡</strong>する。<br>配車が来たら連絡。',
+          type: ''
+        },
+        {
+          num: '④', title: '納品が難しい場合は取引先に連絡', sub: '',
+          body: '納品が難しい場合は<strong>取引先に連絡</strong>する。',
+          type: 'danger'
+        }
+      ]
+    }
+  ];
+
+  sections.forEach(function(sec){
+    var div = document.createElement('div');
+    div.className = 'msection';
+    div.id = 'sec-'+sec.id;
+    var stepsHtml = sec.steps.map(function(s){
+      var noteClass = 'mnote'+(s.type?' '+s.type:'');
+      return '<div class="mstep">'+
+        '<div class="mstep-header" onclick="toggleStep(this)">'+
+          '<div class="mstep-num">'+s.num+'</div>'+
+          '<div class="mstep-content">'+
+            '<div class="mstep-title">'+s.title+'</div>'+
+            (s.sub?'<div class="mstep-subtitle">'+s.sub+'</div>':'')+
+          '</div>'+
+          '<span class="arrow">▼</span>'+
+          '<button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button>'+
+        '</div>'+
+        '<div class="mstep-body"><div class="'+noteClass+'">'+s.body+'</div></div>'+
+      '</div>';
+    }).join('');
+    div.innerHTML =
+      '<div class="page-title">'+sec.title+'</div>'+
+      '<div class="page-meta"><span class="page-meta-tag">'+sec.tag+'</span></div>'+
+      '<div class="step-toolbar">'+
+        '<button class="step-tool-btn" onclick="openInlineAddModal(\''+sec.id+'\')">＋ ステップを追加</button>'+
+      '</div>'+
+      '<div id="steps-'+sec.id+'">'+stepsHtml+'</div>';
+    content.appendChild(div);
+  });
+})();
+</script>
+<div class="modal-overlay" id="modal-sidebar-add">
+  <div class="modal">
+    <div class="modal-title">サイドバーに項目を追加</div>
+    <div class="form-group"><label>項目名 *</label><input type="text" id="sb-label" placeholder="例：他社向けフロー・クレーム対応など"></div>
+    <div class="form-group"><label>アイコン（絵文字）</label><input type="text" id="sb-icon" placeholder="例：📋 🔧 📝" maxlength="2" style="width:80px"></div>
+    <div class="modal-footer">
+      <div></div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-secondary" onclick="closeModal(&#39;modal-sidebar-add&#39;)">キャンセル</button>
+        <button class="btn btn-primary" onclick="saveSidebarItem()">追加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 編集モーダル -->
+<div class="modal-overlay" id="modal-edit">
+  <div class="modal">
+    <div class="modal-title">ステップを編集</div>
+    <div class="form-group"><label>タイトル *</label><input type="text" id="e-title"></div>
+    <div class="form-group"><label>サブタイトル</label><input type="text" id="e-subtitle"></div>
+    <div class="form-group"><label>本文</label><textarea id="e-body" rows="4"></textarea></div>
+    <div class="form-group"><label>ノートの種類</label>
+      <select id="e-note-type"><option value="">通常（青）</option><option value="warn">注意（黄）</option><option value="danger">重要（赤）</option><option value="ok">完了（緑）</option></select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-sm" onclick="deleteStep()">削除</button>
+      <div style="display:flex;gap:8px"><button class="btn btn-secondary" onclick="closeModal(&#39;modal-edit&#39;)">キャンセル</button><button class="btn btn-primary" onclick="saveStep()">保存</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- 追加モーダル -->
+<div class="modal-overlay" id="modal-add">
+  <div class="modal">
+    <div class="modal-title">ステップを追加</div>
+    <div class="form-group"><label>追加するフェーズ</label>
+      <select id="a-phase"><option value="juchu">① 受注処理</option><option value="shijisho">② 指示書作成</option><option value="gaichuu">③ 外注連絡</option><option value="shukka">④ 出荷</option><option value="uriage">⑤ 売上処理</option></select>
+    </div>
+    <div class="form-group"><label>タイトル *</label><input type="text" id="a-title"></div>
+    <div class="form-group"><label>サブタイトル</label><input type="text" id="a-subtitle"></div>
+    <div class="form-group"><label>本文</label><textarea id="a-body" rows="4"></textarea></div>
+    <div class="form-group"><label>ノートの種類</label>
+      <select id="a-note-type"><option value="">通常（青）</option><option value="warn">注意（黄）</option><option value="danger">重要（赤）</option><option value="ok">完了（緑）</option></select>
+    </div>
+    <div class="modal-footer">
+      <div></div>
+      <div style="display:flex;gap:8px"><button class="btn btn-secondary" onclick="closeModal(&#39;modal-add&#39;)">キャンセル</button><button class="btn btn-primary" onclick="addStep()">追加</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// サイドバー項目追加
+function openSidebarAddModal() {
+  document.getElementById('sb-label').value='';
+  document.getElementById('sb-icon').value='📋';
+  document.getElementById('modal-sidebar-add').classList.add('open');
+}
+function saveSidebarItem() {
+  var label = document.getElementById('sb-label').value.trim();
+  if(!label){ alert('項目名を入力してください'); return; }
+  var icon  = document.getElementById('sb-icon').value.trim() || '📋';
+  var cat = { id: extUID(), icon: icon, name: label, steps: [], inMemo: false };
+  extDB.cats.push(cat);
+  extSaveDB();
+  closeModal('modal-sidebar-add');
+  // サイドバーのsidebar-accordionsに追加
+  extAddCatToNav(cat, false);
+  // 右側ページを作成
+  extAddCatPage(cat);
+  // 右側に表示
+  extShowCatPage(cat.id);
+}
+
+// フェーズ内ステップ追加（インライン）
+function openInlineAddModal(phase) {
+  document.getElementById('a-phase').value = phase;
+  ['a-title','a-subtitle','a-body'].forEach(function(i){ document.getElementById(i).value=''; });
+  document.getElementById('a-note-type').value='';
+  document.getElementById('modal-add').classList.add('open');
+}
+
+var editMode = false;
+var currentStepEl = null;
+
+// アコーディオン開閉
+function toggleAccordion(id, btn) {
+  var el = document.getElementById(id);
+  var arrow = document.getElementById('acc-arrow-'+id.replace('acc-',''));
+  var isOpen = el.style.display !== 'none';
+  el.style.display = isOpen ? 'none' : '';
+  if(arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+  btn.classList.toggle('active', !isOpen);
+}
+
+function showSection(id, navEl) {
+  document.querySelectorAll('.msection').forEach(function(s){ s.classList.remove('active'); s.style.display=''; });
+  document.getElementById('sec-'+id).classList.add('active');
+  if(navEl){
+    document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
+    navEl.classList.add('active');
+    // 親のアコーディオンボタンもactiveに
+    document.getElementById('acc-btn-juchu').classList.add('active');
+  }
+  document.querySelector('.content-area').scrollTop = 0;
+}
+
+function scrollToStep(keyword) {
+  setTimeout(function(){
+    var steps = document.querySelectorAll('.mstep-title');
+    for(var i=0;i<steps.length;i++){
+      if(steps[i].textContent.includes(keyword)){
+        steps[i].closest('.mstep').scrollIntoView({behavior:'smooth',block:'start'});
+        break;
+      }
+    }
+  },50);
+}
+
+function toggleStep(header) { header.closest('.mstep').classList.toggle('closed'); }
+
+function checkStep(e, el, phase) {
+  e.stopPropagation();
+  el.classList.toggle('checked');
+  updateProgress(phase);
+}
+function updateProgress(phase) {
+  var c = document.getElementById('steps-'+phase); if(!c) return;
+  var total = c.querySelectorAll('.mstep-check').length;
+  var done  = c.querySelectorAll('.mstep-check.checked').length;
+  var pb = document.getElementById('pb-'+phase);
+  var pl = document.getElementById('pl-'+phase);
+  if(pb) pb.style.width=(total?Math.round(done/total*100):0)+'%';
+  if(pl) pl.textContent=done+' / '+total+' 完了';
+}
+function resetChecks() {
+  if(!confirm('全チェックをリセットしますか？')) return;
+  document.querySelectorAll('.mstep-check').forEach(function(el){ el.classList.remove('checked'); });
+  ['juchu','shijisho','shukka','uriage','hirotec-shukka'].forEach(updateProgress);
+}
+
+function showProd(id, btn) {
+  document.querySelectorAll('.prod-content').forEach(function(c){ c.classList.remove('active'); });
+  document.querySelectorAll('.prod-tab').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('prod-'+id).classList.add('active');
+  var tabEl = btn || document.getElementById('prodtab-'+id);
+  if(tabEl) tabEl.classList.add('active');
+}
+
+function toggleEdit() {
+  editMode = !editMode;
+  var btn = document.getElementById('edit-btn');
+  var bar = document.getElementById('edit-bar');
+  btn.textContent = editMode ? '✓ 完了' : '✏ 編集モード';
+  btn.classList.toggle('active', editMode);
+  bar.classList.toggle('show', editMode);
+  document.querySelectorAll('.edit-step-btn').forEach(function(b){ b.style.display = editMode ? '' : 'none'; });
+}
+
+function openEditModal(e, btn) {
+  e.stopPropagation();
+  currentStepEl = btn.closest('.mstep');
+  var titleEl    = currentStepEl.querySelector('.mstep-title');
+  var subtitleEl = currentStepEl.querySelector('.mstep-subtitle');
+  var noteEl     = currentStepEl.querySelector('.mnote');
+  var noteType   = '';
+  if(noteEl){ if(noteEl.classList.contains('warn')) noteType='warn'; else if(noteEl.classList.contains('danger')) noteType='danger'; else if(noteEl.classList.contains('ok')) noteType='ok'; }
+  document.getElementById('e-title').value     = titleEl    ? titleEl.textContent    : '';
+  document.getElementById('e-subtitle').value  = subtitleEl ? subtitleEl.textContent : '';
+  document.getElementById('e-body').value      = noteEl     ? noteEl.innerHTML       : '';
+  document.getElementById('e-note-type').value = noteType;
+  document.getElementById('modal-edit').classList.add('open');
+}
+function saveStep() {
+  var title = document.getElementById('e-title').value.trim();
+  if(!title){ alert('タイトルを入力してください'); return; }
+  var subtitle = document.getElementById('e-subtitle').value.trim();
+  var body     = document.getElementById('e-body').value.trim();
+  var noteType = document.getElementById('e-note-type').value;
+  currentStepEl.querySelector('.mstep-title').textContent = title;
+  var subEl = currentStepEl.querySelector('.mstep-subtitle');
+  if(subtitle){ if(subEl) subEl.textContent=subtitle; else{ var s=document.createElement('div');s.className='mstep-subtitle';s.textContent=subtitle;currentStepEl.querySelector('.mstep-content').appendChild(s); } } else if(subEl) subEl.remove();
+  var noteEl = currentStepEl.querySelector('.mnote');
+  if(body){ var cls='mnote'+(noteType?' '+noteType:''); if(noteEl){ noteEl.className=cls;noteEl.innerHTML=body; }else{ var n=document.createElement('div');n.className=cls;n.innerHTML=body;currentStepEl.querySelector('.mstep-body').insertBefore(n,currentStepEl.querySelector('.mstep-body').firstChild); } }
+  closeModal('modal-edit');
+}
+function deleteStep() {
+  if(!confirm('このステップを削除しますか？')) return;
+  var phase = currentStepEl.getAttribute('data-phase');
+  currentStepEl.remove();
+  if(phase) updateProgress(phase);
+  closeModal('modal-edit');
+}
+
+function openAddModal() { ['a-title','a-subtitle','a-body'].forEach(function(i){ document.getElementById(i).value=''; }); document.getElementById('a-note-type').value=''; document.getElementById('modal-add').classList.add('open'); }
+function addStep() {
+  var title = document.getElementById('a-title').value.trim();
+  if(!title){ alert('タイトルを入力してください'); return; }
+  var phase    = document.getElementById('a-phase').value;
+  var subtitle = document.getElementById('a-subtitle').value.trim();
+  var body     = document.getElementById('a-body').value.trim();
+  var noteType = document.getElementById('a-note-type').value;
+  var container = document.getElementById('steps-'+phase); if(!container){ closeModal('modal-add');return; }
+  var num = container.querySelectorAll('.mstep').length+1;
+  var div = document.createElement('div');
+  div.className='mstep'; div.setAttribute('data-phase',phase);
+  div.innerHTML='<div class="mstep-header" onclick="toggleStep(this)"><div class="mstep-check" onclick="checkStep(event,this,\''+phase+'\')"></div><div class="mstep-num">'+String(num).padStart(2,'0')+'</div><div class="mstep-content"><div class="mstep-title">'+title+'</div>'+(subtitle?'<div class="mstep-subtitle">'+subtitle+'</div>':'')+
+  '</div><span class="arrow">▼</span><button class="edit-step-btn" onclick="openEditModal(event,this)">編集</button></div>'+
+  '<div class="mstep-body">'+(body?'<div class="mnote'+(noteType?' '+noteType:'')+'">'+body+'</div>':'<div class="mnote">（内容を編集してください）</div>')+'</div>';
+  container.appendChild(div);
+  updateProgress(phase);
+  closeModal('modal-add');
+  // localStorageに保存
+  var title2 = document.getElementById('a-title').value.trim();
+  var body2 = document.getElementById('a-body').value.trim();
+  if(!extDB.steps[phase]) extDB.steps[phase]=[];
+  extDB.steps[phase].push({id:extUID(),title:title2,body:body2});
+  extSaveDB();
+}
+
+function closeModal(id) { document.getElementById(id).classList.remove('open'); currentStepEl=null; }
+document.querySelectorAll('.modal-overlay').forEach(function(o){ o.addEventListener('click',function(e){ if(e.target===o) o.classList.remove('open'); }); });
+
+['juchu','shijisho','shukka','uriage','hirotec-shukka'].forEach(updateProgress);
+</script>
+
+<div id="ext-overlay" style="display: none; position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.5); z-index: 9999; align-items: center; justify-content: center;">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:460px;max-width:95vw;">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;" id="ext-modal-title">カテゴリ名を入力してください</div>
+    <div style="margin-bottom:12px;">
+      <label style="font-size:11px;font-weight:600;color:#666;display:block;margin-bottom:4px;">タイトル *</label>
+      <input type="text" id="ext-inp-title" style="width:100%;padding:9px;border:1px solid #ccc;border-radius:8px;font-size:13px;font-family:inherit;" placeholder="タイトルを入力">
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="font-size:11px;font-weight:600;color:#666;display:block;margin-bottom:4px;">内容（省略可）</label>
+      <textarea id="ext-inp-body" style="width:100%;padding:9px;border:1px solid #ccc;border-radius:8px;font-size:13px;font-family:inherit;min-height:80px;resize:vertical;" placeholder="テキストを入力
+Excelからコピーしてそのまま貼り付けると自動で表になります" onpaste="extHandlePaste(event)"></textarea>
+      <div style="margin-top:8px;">
+        <button type="button" onclick="extShowTableEditor()" style="padding:5px 12px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">📊 表を作る</button>
+      </div>
+      <!-- 表エディタ -->
+      <div id="ext-table-editor" style="display:none;margin-top:12px;border:1px solid #a8c0e0;border-radius:8px;padding:12px;background:#f8fbff;">
+        <div style="font-size:12px;font-weight:600;color:#2c5f8a;margin-bottom:8px;">📊 表エディタ</div>
+        <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center;">
+          <label style="font-size:12px;">行数</label>
+          <input type="number" id="ext-tbl-rows" value="3" min="1" max="20" style="width:60px;padding:4px 8px;border:1px solid #ccc;border-radius:5px;font-size:13px;">
+          <label style="font-size:12px;">列数</label>
+          <input type="number" id="ext-tbl-cols" value="3" min="1" max="10" style="width:60px;padding:4px 8px;border:1px solid #ccc;border-radius:5px;font-size:13px;">
+          <button type="button" onclick="extBuildTableGrid()" style="padding:4px 12px;background:#2c5f8a;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:12px;font-family:inherit;">グリッド作成</button>
+        </div>
+        <div id="ext-tbl-grid" style="overflow-x:auto;margin-bottom:8px;"></div>
+        <button type="button" onclick="extApplyTable()" style="padding:5px 14px;background:#2c5f8a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;font-weight:500;">✅ 内容に追加</button>
+        <button type="button" onclick="document.getElementById(&#39;ext-table-editor&#39;).style.display=&#39;none&#39;" style="margin-left:8px;padding:5px 12px;background:#f4f4f4;border:1px solid #ccc;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;">閉じる</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button onclick="extClose()" style="padding:8px 16px;border-radius:8px;border:1px solid #ccc;background:#f4f4f4;cursor:pointer;font-family:inherit;font-size:13px;">キャンセル</button>
+      <button onclick="extSave()" style="padding:8px 16px;border-radius:8px;border:none;background:#2c5f8a;color:#fff;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var EXT_KEY = 'shinco_ext_v5';
+var extDB = {cats:[], steps:{}};
+var extMode = null; var extEditStepId = null;
+var extCatId = null;
+var extSecId = null;
+
+function extExport(){
+  extLoadDB();
+  var blob=new Blob([JSON.stringify(extDB)],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='shinco_manual_backup_'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+}
+
+function extImport(e){
+  var file=e.target.files[0];
+  if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var d=JSON.parse(ev.target.result);
+      extDB=d;
+      extSaveDB();
+      alert('インポート完了！ページを更新します。');
+      location.reload();
+    }catch(err){alert('エラー：ファイルが正しくありません');}
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
+function extLoadDB(){try{var d=JSON.parse(localStorage.getItem(EXT_KEY));if(d)extDB=d;}catch(e){}}
+function extSaveDB(){localStorage.setItem(EXT_KEY,JSON.stringify(extDB));}
+function extUID(){return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
+function extE(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function extClose(){document.getElementById('ext-overlay').style.display='none';}
+
+function extOpenForCat(catId){
+  extMode='step-cat'; extCatId=catId; extSecId=null;
+  document.getElementById('ext-modal-title').textContent='ステップを追加';
+  document.getElementById('ext-inp-title').value='';
+  document.getElementById('ext-inp-body').value='';
+  document.getElementById('ext-overlay').style.display='flex';
+  setTimeout(function(){document.getElementById('ext-inp-title').focus();},100);
+}
+
+function extOpenForSec(secId){
+  extMode='step-sec'; extCatId=null; extSecId=secId;
+  document.getElementById('ext-modal-title').textContent='ステップを追加';
+  document.getElementById('ext-inp-title').value='';
+  document.getElementById('ext-inp-body').value='';
+  document.getElementById('ext-overlay').style.display='flex';
+  setTimeout(function(){document.getElementById('ext-inp-title').focus();},100);
+}
+
+function extOpenForNewCat(){
+  extMode='new-cat'; extCatId=null; extSecId=null;
+  document.getElementById('ext-modal-title').textContent='カテゴリ名を入力してください';
+  document.getElementById('ext-inp-title').value='';
+  document.getElementById('ext-inp-body').value='';
+  document.getElementById('ext-overlay').style.display='flex';
+  setTimeout(function(){document.getElementById('ext-inp-title').focus();},100);
+}
+
+function extInsertTable(){
+  var rows = parseInt(prompt('行数を入力してください（ヘッダー含む）', '3'));
+  if(!rows||isNaN(rows)||rows<1) return;
+  var cols = parseInt(prompt('列数を入力してください', '3'));
+  if(!cols||isNaN(cols)||cols<1) return;
+  var html = '<table>\n';
+  html += '  <tr>';
+  for(var c=0;c<cols;c++) html += '<th>項目'+(c+1)+'</th>';
+  html += '</tr>\n';
+  for(var r=1;r<rows;r++){
+    html += '  <tr>';
+    for(var c2=0;c2<cols;c2++) html += '<td></td>';
+    html += '</tr>\n';
+  }
+  html += '</table>';
+  var ta = document.getElementById('ext-inp-body');
+  if(!ta) return;
+  var pos = ta.selectionStart;
+  ta.value = ta.value.substring(0,pos) + html + ta.value.substring(pos);
+  ta.focus();
+}
+
+function extShowTableEditor(){
+  var ed = document.getElementById('ext-table-editor');
+  if(ed){ ed.style.display = ed.style.display==='none' ? '' : 'none'; }
+  extBuildTableGrid();
+}
+
+function extBuildTableGrid(){
+  var rows = parseInt(document.getElementById('ext-tbl-rows').value)||3;
+  var cols = parseInt(document.getElementById('ext-tbl-cols').value)||3;
+  var grid = document.getElementById('ext-tbl-grid');
+  if(!grid) return;
+  var html = '<table style="border-collapse:collapse;width:100%;">';
+  for(var r=0;r<rows;r++){
+    html += '<tr>';
+    for(var c=0;c<cols;c++){
+      var isHeader = r===0;
+      var bg = isHeader ? 'background:#e8f0fe;font-weight:600;' : '';
+      html += '<td style="border:1px solid #a8c0e0;padding:2px;">' +
+        '<input type="text" data-r="'+r+'" data-c="'+c+'" placeholder="'+(isHeader?'ヘッダー':'データ')+'" ' +
+        'style="width:100%;padding:5px 6px;border:none;font-size:12px;font-family:inherit;'+bg+'outline:none;min-width:80px;">' +
+        '</td>';
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  grid.innerHTML = html;
+}
+
+function extApplyTable(){
+  var grid = document.getElementById('ext-tbl-grid');
+  if(!grid) return;
+  var rows = grid.querySelectorAll('tr');
+  var html = '<table>\n';
+  rows.forEach(function(tr, ri){
+    html += '  <tr>';
+    tr.querySelectorAll('input').forEach(function(inp, ci){
+      var tag = ri===0 ? 'th' : 'td';
+      html += '<'+tag+'>'+(inp.value||'　')+'</'+tag+'>';
+    });
+    html += '</tr>\n';
+  });
+  html += '</table>';
+  var ta = document.getElementById('ext-inp-body');
+  if(ta){
+    ta.value = (ta.value ? ta.value + '\n' : '') + html;
+  }
+  document.getElementById('ext-table-editor').style.display = 'none';
+}
+
+function extHandlePaste(e){
+  var text = (e.clipboardData||window.clipboardData).getData('text');
+  if(!text) return;
+  // タブ区切り（Excelコピー）かどうか確認
+  var rows = text.trim().split('\n');
+  var hasTab = rows.some(function(r){ return r.indexOf('\t') !== -1; });
+  if(!hasTab) return; // 普通のテキストはそのままペースト
+  e.preventDefault();
+  // 表に変換
+  var html = '<table>\n';
+  rows.forEach(function(row, ri){
+    var cells = row.split('\t');
+    html += '  <tr>';
+    cells.forEach(function(cell){
+      var tag = ri===0 ? 'th' : 'td';
+      html += '<'+tag+'>'+cell.trim()+'</'+tag+'>';
+    });
+    html += '</tr>\n';
+  });
+  html += '</table>';
+  var ta = document.getElementById('ext-inp-body');
+  var pos = ta.selectionStart;
+  ta.value = ta.value.substring(0,pos) + html + ta.value.substring(ta.selectionEnd);
+}
+
+function extSave(){
+  var title=document.getElementById('ext-inp-title').value.trim();
+  if(!title){alert('タイトルを入力してください');return;}
+  var body=document.getElementById('ext-inp-body').value.trim();
+
+  if(extMode==='edit-cat'){
+    var cat=extDB.cats.find(function(c){return c.id===extCatId;});
+    if(!cat)return;
+    var step=cat.steps.find(function(s){return s.id===extEditStepId;});
+    if(step){step.title=title;step.body=body;}
+    extSaveDB();
+    extClose();
+    extRefreshCatPage(extCatId);
+  } else if(extMode==='edit-sec'){
+    var steps=extDB.steps[extSecId]||[];
+    var step2=steps.find(function(s){return s.id===extEditStepId;});
+    if(step2){step2.title=title;step2.body=body;}
+    extDB.steps[extSecId]=steps;
+    extSaveDB();
+    extClose();
+    extRefreshSecSteps(extSecId);
+  } else if(extMode==='new-cat'){
+    var cat={id:extUID(),name:title,icon:'📝',steps:[]};
+    extDB.cats.push(cat);
+    extSaveDB();
+    extClose();
+    extAddCatToNav(cat, true);  // 実務メモの中に追加
+    extAddCatPage(cat);
+    // acc-memoを開く
+    var accMemo=document.getElementById('acc-memo');
+    if(accMemo) accMemo.style.display='';
+    extShowCatPage(cat.id);
+  } else if(extMode==='step-cat'){
+    var cat2=extDB.cats.find(function(c){return c.id===extCatId;});
+    if(!cat2)return;
+    cat2.steps.push({id:extUID(),title:title,body:body});
+    extSaveDB();
+    extClose();
+    extRefreshCatPage(cat2.id);
+  } else if(extMode==='step-sec'){
+    if(!extDB.steps[extSecId])extDB.steps[extSecId]=[];
+    extDB.steps[extSecId].push({id:extUID(),title:title,body:body});
+    extSaveDB();
+    extClose();
+    extRefreshSecSteps(extSecId);
+  }
+}
+
+function extAddCatToNav(cat, toMemo){
+  // toMemo=trueなら実務メモの中に、falseならsidebar-accordionsに追加
+  var targetId = toMemo ? 'acc-memo' : 'sidebar-accordions';
+  var list=document.getElementById(targetId);
+  if(!list)return;
+  var div=document.createElement('div');
+  div.className='nav-item';
+  div.id='ext-nav-'+cat.id;
+  div.innerHTML='<span class="nav-item-icon">'+cat.icon+'</span><span style="flex:1">'+extE(cat.name)+'</span>';
+  div.onclick=function(){extShowCatPage(cat.id);};
+  list.appendChild(div);
+}
+
+function extAddCatPage(cat){
+  var content=document.querySelector('.content');
+  if(!content)return;
+  var div=document.createElement('div');
+  div.className='msection';
+  div.id='ext-page-'+cat.id;
+  div.style.display='none';
+  content.appendChild(div);
+  extRefreshCatPage(cat.id);
+}
+
+function extRefreshCatPage(catId){
+  var cat=extDB.cats.find(function(c){return c.id===catId;});
+  if(!cat)return;
+  var div=document.getElementById('ext-page-'+catId);
+  if(!div)return;
+  var html='<div class="page-title">'+cat.icon+' '+extE(cat.name)+'</div>'
+    +'<div class="page-meta"><span class="page-meta-tag">カスタム</span></div>';
+  if(!cat.steps||cat.steps.length===0){
+    html+='<div style="color:#aaa;padding:20px 0;font-size:13px;">まだステップがありません</div>';
+  } else {
+    cat.steps.forEach(function(s,i){
+      html+='<div class="mstep">'
+        +'<div class="mstep-header" onclick="toggleStep(this)">'
+        +'<div class="mstep-num">'+(i+1)+'</div>'
+        +'<div class="mstep-content"><div class="mstep-title">'+extE(s.title)+'</div></div>'
+        +'<span class="arrow">▼</span>'
+        +'<button class="ext-edit-cat-btn" data-cat="'+catId+'" data-sid="'+s.id+'" style="font-size:11px;padding:3px 8px;background:#fff;border:1px solid #ccc;border-radius:5px;cursor:pointer;font-family:inherit;color:#555;">編集</button>'
+        +'</div>'
+        +(s.body?'<div class="mstep-body"><div class="mnote">'+s.body+'</div></div>':'')
+        +'</div>';
+    });
+  }
+  html+='<div style="margin-top:16px">'
+    +'<button id="btn-add-'+catId+'" style="padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;">&#xFF0B; ステップを追加</button>'
+    +' <button id="btn-del-'+catId+'" style="margin-left:8px;padding:4px 10px;font-size:11px;border:1px solid #fcc;background:#fff0f0;color:#c00;border-radius:5px;cursor:pointer;font-family:inherit;">カテゴリを削除</button>'
+    +'</div>';
+  div.innerHTML=html;
+  document.getElementById('btn-add-'+catId).onclick=function(){extOpenForCat(catId);};
+  document.getElementById('btn-del-'+catId).onclick=function(){extDelCat(catId);};
+  // 編集ボタンのイベント（data属性で処理）
+  div.querySelectorAll('.ext-edit-cat-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var cid = this.getAttribute('data-cat');
+      var sid = this.getAttribute('data-sid');
+      var cat3 = extDB.cats.find(function(c){ return c.id===cid; });
+      if(!cat3) return;
+      var step = cat3.steps.find(function(s){ return s.id===sid; });
+      if(!step) return;
+      extOpenForEdit(cid, sid, step.title, step.body||'');
+    });
+  });
+}
+
+function extShowCatPage(catId){
+  document.querySelectorAll('.msection').forEach(function(s){s.style.display='none';s.classList.remove('active');});
+  var page=document.getElementById('ext-page-'+catId);
+  if(page){page.style.display='block';page.classList.add('active');}
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  var nav=document.getElementById('ext-nav-'+catId);
+  if(nav)nav.classList.add('active');
+  var ca=document.querySelector('.content-area');
+  if(ca)ca.scrollTop=0;
+}
+
+function extOpenForEdit(catId, stepId, title, body){
+  extMode='edit-cat'; extCatId=catId; extEditStepId=stepId;
+  document.getElementById('ext-modal-title').textContent='ステップを編集';
+  document.getElementById('ext-inp-title').value=title||'';
+  document.getElementById('ext-inp-body').value=body||'';
+  document.getElementById('ext-overlay').style.display='flex';
+  setTimeout(function(){document.getElementById('ext-inp-title').focus();},100);
+}
+
+function extOpenForEditSec(secId, stepId, title, body){
+  extMode='edit-sec'; extSecId=secId; extEditStepId=stepId;
+  document.getElementById('ext-modal-title').textContent='ステップを編集';
+  document.getElementById('ext-inp-title').value=title||'';
+  document.getElementById('ext-inp-body').value=body||'';
+  document.getElementById('ext-overlay').style.display='flex';
+  setTimeout(function(){document.getElementById('ext-inp-title').focus();},100);
+}
+
+function extDelCat(catId){
+  if(!confirm('このカテゴリを削除しますか？'))return;
+  extDB.cats=extDB.cats.filter(function(c){return c.id!==catId;});
+  extSaveDB();
+  var p=document.getElementById('ext-page-'+catId);if(p)p.remove();
+  var n=document.getElementById('ext-nav-'+catId);if(n)n.remove();
+}
+
+function extDelCatStep(e,catId,stepId){
+  e.stopPropagation();
+  if(!confirm('削除しますか？'))return;
+  var cat=extDB.cats.find(function(c){return c.id===catId;});
+  if(!cat)return;
+  cat.steps=cat.steps.filter(function(s){return s.id!==stepId;});
+  extSaveDB();
+  extRefreshCatPage(catId);
+}
+
+function extRefreshSecSteps(secId){
+  // 追加ステップ専用コンテナ（ext-steps-xxx）を使う
+  var container=document.getElementById('ext-steps-'+secId);
+  if(!container){
+    // なければ作成してsec-xxxの末尾に追加
+    var sec=document.getElementById('sec-'+secId);
+    if(!sec)return;
+    container=document.createElement('div');
+    container.id='ext-steps-'+secId;
+    sec.appendChild(container);
+  }
+  container.innerHTML='';
+  var steps=extDB.steps[secId]||[];
+  var base=container.querySelectorAll('.mstep:not(.ext-extra)').length;
+  steps.forEach(function(s,i){
+    var div=document.createElement('div');
+    div.className='mstep ext-extra';
+    div.style.borderLeft='3px solid #2c5f8a';
+    var body=s.body?'<div class="mstep-body"><div class="mnote">'+s.body+'</div></div>':'';
+    div.innerHTML='<div class="mstep-header" onclick="toggleStep(this)">'
+      +'<div class="mstep-num">'+(base+i+1)+'</div>'
+      +'<div class="mstep-content"><div class="mstep-title">'+extE(s.title)+'</div></div>'
+      +'<span class="arrow">▼</span>'
+      +'<button class="edit-step-btn" data-sec="'+secId+'" data-sid="'+s.id+'" data-title="'+extE(s.title)+'" data-body="'+extE(s.body||'')+'">編集</button>'
+      +'<button class="edit-step-btn" style="color:#c00" data-sec="'+secId+'" data-sid="'+s.id+'">削除</button>'
+      +'</div>'+body;
+    var btns=div.querySelectorAll('button');
+    // 編集ボタン
+    btns[0].addEventListener('click',function(e){
+      e.stopPropagation();
+      var sec=this.getAttribute('data-sec');
+      var sid=this.getAttribute('data-sid');
+      var title=this.getAttribute('data-title');
+      var body=this.getAttribute('data-body');
+      extOpenForEditSec(sec, sid, title, body);
+    });
+    // 削除ボタン
+    btns[1].addEventListener('click',function(e){
+      e.stopPropagation();
+      var sec=this.getAttribute('data-sec');
+      var sid=this.getAttribute('data-sid');
+      if(!confirm('削除しますか？'))return;
+      extDB.steps[sec]=(extDB.steps[sec]||[]).filter(function(x){return x.id!==sid;});
+      extSaveDB();
+      extRefreshSecSteps(sec);
+    });
+    container.appendChild(div);
+  });
+}
+
+function extDelSecStep(e,secId,stepId){
+  e.stopPropagation();
+  if(!confirm('削除しますか？'))return;
+  extDB.steps[secId]=(extDB.steps[secId]||[]).filter(function(s){return s.id!==stepId;});
+  extSaveDB();
+  extRefreshSecSteps(secId);
+}
+
+function extInject(){
+  // 既存セクションにボタン注入
+  ['memo-shijisho','memo-paribet','memo-haiso','memo-trouble','juchu','shijisho','gaichuu','shukka','uriage','hirotec-shukka','hirotec-seihin','hirotec-note'].forEach(function(id){
+    var sec=document.getElementById('sec-'+id);
+    if(!sec||sec.querySelector('.ext-sec-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='ext-sec-btn';
+    btn.style.cssText='margin-top:12px;padding:7px 14px;background:#eef3fb;border:1px solid #a8c0e0;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;color:#2c5f8a;font-weight:500;display:inline-block;';
+    btn.textContent='＋ ステップを追加';
+    btn.onclick=function(){extOpenForSec(id);};
+    sec.appendChild(btn);
+    extRefreshSecSteps(id);
+  });
+
+  // カテゴリ追加ボタン
+  if(!document.getElementById('ext-cat-btn')){
+    var sidebar=document.querySelector('.sidebar');
+    if(sidebar){
+      var btn2=document.createElement('button');
+      btn2.id='ext-cat-btn';
+      btn2.style.cssText='width:calc(100% - 24px);margin:8px 12px 4px;padding:8px;background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);border-radius:6px;color:#fff;cursor:pointer;font-family:inherit;font-size:13px;display:block;';
+      btn2.textContent='＋ カテゴリを追加';
+      btn2.onclick=extOpenForNewCat;
+      sidebar.appendChild(btn2);
+    }
+  }
+
+  // 保存済みカテゴリ復元
+  extDB.cats.forEach(function(cat){
+    if(!document.getElementById('ext-nav-'+cat.id))extAddCatToNav(cat, cat.inMemo !== false);
+    if(!document.getElementById('ext-page-'+cat.id))extAddCatPage(cat);
+    else extRefreshCatPage(cat.id);
+    // HTMLにハードコードされたext-navにonclickが未設定の場合は後付け
+    var navEl=document.getElementById('ext-nav-'+cat.id);
+    if(navEl && !navEl._extClick){
+      navEl._extClick=true;
+      navEl.style.cursor='pointer';
+      navEl.onclick=function(){extShowCatPage(cat.id);};
+    }
+  });
+}
+
+document.getElementById('ext-overlay').addEventListener('click',function(e){
+  if(e.target===this)extClose();
+});
+
+document.addEventListener('DOMContentLoaded',function(){
+  extLoadDB();
+  setTimeout(extInject,500);
+});
+</script>
+
+
+
+</body></html>
